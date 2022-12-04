@@ -1,4 +1,4 @@
-.header-inner {
+.headerInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,9 +7,13 @@
 .header {
   padding: 24px 0;
   &__logo {
-    margin-right: 60px;
+
   }
   &__nav {
-    margin-right: auto;
+    &__wrapper{
+
+    }
+    &__item{}
+    &__link{}
   }
 }

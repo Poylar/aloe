@@ -3,7 +3,6 @@
     "browser": true,
     "es2021": true
   },
-  "files": ["*.ts", "*.tsx"],
   "extends": ["plugin:react/recommended", "airbnb", "airbnb-typescript", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -12,7 +11,7 @@
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    " project": ["./tsconfig.json"]
+    "project": ["../tsconfig.json"]
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
