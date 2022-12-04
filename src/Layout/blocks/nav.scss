@@ -1,0 +1,10 @@
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  &__item {
+    margin-right: 32px;
+  }
+}
