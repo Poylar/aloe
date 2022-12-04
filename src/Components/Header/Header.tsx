@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 
-import './Header.scss';
+import logoImage from '../../Assets/icons/logotype.svg';
+import styles from './Header.module.scss';
 
-const menu = [
+interface INavItem {
+  name: string;
+  archon: string;
+}
+const menu: INavItem[] = [
   {
     name: 'Mission',
     archon: '#mission',
@@ -26,24 +31,29 @@ const menu = [
 ];
 
 const Header = () => (
-  <header className='header'>
-    <div className='header-inner container'>
-      <div className='header__logo logo'>
+  <header className={styles.header}>
+    <div className={`${styles.headerInner} container`}>
+      <div className={`${styles.header__logo}`}>
         <Link to='/'>
-          <img src='' alt='' className='logo__src' />
+          <img src={logoImage} alt='' className='' />
+          <p>
+            Aloe <b>Labs</b>
+          </p>
         </Link>
       </div>
-      <nav className='header__nav nav'>
-        <ul className='nav-list'>
+
+      <nav className={styles.header__nav}>
+        <ul className={styles.header__nav__wrapper}>
           {menu.map((item) => (
-            <li className='nav__item'>
-              <a href={item.archon} className='nav__link'>
+            <li key={item.archon} className={styles.header__nav__item}>
+              <a href={item.archon} className={styles.header__nav__link}>
                 {item.name}
               </a>
             </li>
           ))}
         </ul>
       </nav>
+
       <a href='#email' className='header__btn btn btn--secondary'>
         Join mailing list
       </a>

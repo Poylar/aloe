@@ -1,6 +1,6 @@
-import './App.scss';
-import Header from '../Components/Header/Header';
 import Footer from '../Components/Footer/Footer';
+import Header from '../Components/Header/Header';
+import './App.scss';
 
 const BaseLayout = ({ children, className }: any) => (
   <div className='page-wrapper'>
