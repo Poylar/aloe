@@ -1,10 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { Route, Routes } from 'react-router-dom';
 
-import RootRouter from './RootRouter';
+import './Assets/styles/global.scss';
+import Footer from './Layout/Footer/Footer';
+import Header from './Layout/Header/Header';
+import FrontPage from './Pages/FrontPage/FrontPage';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RootRouter />
-  </React.StrictMode>
+const App = () => (
+  <>
+    <Header />
+    <Routes>
+      <Route index element={<FrontPage />} />
+    </Routes>
+    <Footer />
+  </>
 );
+
+export default App;

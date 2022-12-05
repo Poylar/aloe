@@ -1,0 +1,31 @@
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
+
+.section{
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 60px;
+  background-position: center center;
+
+  &__wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @extend %container;
+
+    .title{
+      color: var(--prim);
+      @extend %sui_reg_80_84;
+      max-width: 670px;
+    }
+    .desc{
+      color: var(--prim);
+      @extend %sui_reg_20_30;
+      max-width: 400px;
+    }
+  }
+}
