@@ -1,0 +1,50 @@
+@mixin font($fontFamily, $fontFullName, $fontWeight, $fontStyle) {
+  @font-face {
+    font-family: $fontFamily;
+    src: url('../../assets/fonts/' + $fontFullName);
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+  }
+}
+
+// font('SuisseIntl', 'SuisseIntl-Black.otf', 900, normal);
+// font('SuisseIntl', 'SuisseIntl-BlackItalic.otf', 900, intalic);
+// font('SuisseIntl', 'SuisseIntl-Book.otf', 800, normal);
+// font('SuisseIntl', 'SuisseIntl-BookItalic.otf', 800, intalic);
+// font('SuisseIntl', 'SuisseIntl-Bold.otf', 700, normal);
+// font('SuisseIntl', 'SuisseIntl-BoldItalic.otf', 700, intalic);
+// font('SuisseIntl', 'SuisseIntl-SemiBold.otf', 600, normal);
+// font('SuisseIntl', 'SuisseIntl-SemiBoldItalic.otf', 600, intalic);
+// font('SuisseIntl', 'SuisseIntl-Medium.otf', 500, normal);
+// font('SuisseIntl', 'SuisseIntl-MediumItalic.otf', 500, intalic);
+@include font('SuisseIntl', 'SuisseIntl-Regular.otf', 400, normal);
+// font('SuisseIntl', 'SuisseIntl-RegularItalic.otf', 400, intalic);
+// font('SuisseIntl', 'SuisseIntl-Light.otf', 300, normal);
+// font('SuisseIntl', 'SuisseIntl-LightItalic.otf', 300, intalic);
+// font('SuisseIntl', 'SuisseIntl-Ultralight.otf', 200, normal);
+// font('SuisseIntl', 'SuisseIntl-UltralightItalic.otf', 200, intalic);
+// font('SuisseIntl', 'SuisseIntl-Thin.otf', 100, normal);
+// font('SuisseIntl', 'SuisseIntl-ThinItalic.otf', 100, intalic);
+
+%sui_reg {
+  font-family: 'SuisseIntl', sans-serif;
+  font-weight: 400;
+  &_16_24 {
+    @extend %sui_reg;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.005em;
+  }
+  &_80_84 {
+    @extend %sui_reg;
+    font-size: 80px;
+    line-height: 84px;
+    letter-spacing: -0.03em;
+  }
+  &_20_30{
+    @extend %sui_reg;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+  }
+}
