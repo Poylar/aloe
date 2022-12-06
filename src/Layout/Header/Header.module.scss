@@ -20,6 +20,10 @@
     align-items: center;
     justify-content: flex-start;
   }
+  &__buttons{
+    display: flex;
+    align-items: center;
+  }
 }
 
 .headerMenu {

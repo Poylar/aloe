@@ -3,6 +3,9 @@
 
 :root {
   @extend %colorsRoot;
+  --container: 1400px;
+  --gap: 20px;
+  --sectionBR: 40px;
 }
 
 *,
@@ -22,8 +25,8 @@ body{
 }
 
 %container {
-  max-width: 1400px;
-  width: 1400px;
-  padding: 0 20px;
+  max-width: var(--container);
+  width: 100%;
+  padding: 0 var(--gap);
   margin: 0 auto;
 }

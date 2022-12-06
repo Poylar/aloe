@@ -2,21 +2,18 @@
 @use '../../assets/styles/typography' as *;
 
 .section{
-  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-bottom: 60px;
-  background-position: center center;
-
+  background-position: top center;
+  padding: 570px 0 60px 0;
   &__wrapper{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     @extend %container;
-
     .title{
       color: var(--prim);
       @extend %sui_reg_80_84;
@@ -26,6 +23,7 @@
       color: var(--prim);
       @extend %sui_reg_20_30;
       max-width: 400px;
+      text-indent: 40px;
     }
   }
 }

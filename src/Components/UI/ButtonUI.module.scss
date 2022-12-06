@@ -2,6 +2,7 @@
   color: var(--prim);
   padding: 12px 24px;
   border-radius: 16px;
+  display: inline-block;
   &:not(:last-child) {
     margin-right: 12px;
   }
@@ -15,4 +16,11 @@
   @extend %button;
   background: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.button_white {
+  @extend %button;
+  background: var(--prim);
+  color: var(--main);
+  border: 1px solid rgba(17, 17, 17, 0.2);
 }

@@ -4,18 +4,20 @@ import descriptionImage from '../../Assets/images/description.jpg';
 import styles from './Description.module.scss';
 
 interface Props {
-  title: string;
-  description: string;
+  pageData: {
+    title: string;
+    description: string;
+  };
 }
 
-const Description: FunctionComponent<Props> = ({ title, description }) => (
+const Description: FunctionComponent<Props> = ({ pageData }) => (
   <section
     style={{ backgroundImage: `url(${descriptionImage})` }}
     className={styles.section}
   >
     <div className={styles.section__wrapper}>
-      <h1 className={styles.title}>{title}</h1>
-      <p className={styles.desc}>{description}</p>
+      <h1 className={styles.title}>{pageData.title}</h1>
+      <p className={styles.desc}>{pageData.description}</p>
     </div>
   </section>
 );

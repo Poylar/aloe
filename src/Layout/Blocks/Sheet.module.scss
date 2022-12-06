@@ -1,0 +1,78 @@
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
+
+
+.section{
+  background: var(--primBg);
+  border-radius: var(--sectionBR);
+  padding: 60px 0;
+  &__wrapper{
+    @extend %container;
+  }
+  .top{
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+    .title{
+      color: var(--main);
+      @extend %sui_reg_80_84;
+      max-width: 680px;
+      margin-right: 20px;
+    }
+    .description{
+      color: var(--main);
+      @extend %sui_reg_20_30;
+      text-indent: 40px;
+      max-width: 400px;
+    }
+  }
+  .cards{
+    display: flex;
+  }
+}
+
+
+.card{
+  background: var(--prim);
+  padding: 20px 20px 30px 20px;
+  min-height: 400px;
+  border-radius: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  &:not(:last-child){
+    margin-right: 20px;
+  }
+  &__top{
+    display: flex;
+    align-items: center;
+    %tag{
+      margin-right: 4px;
+      border-radius: 12px;
+      color: var(--prim);
+      padding: 4px 12px;
+    }
+    .new{
+      @extend %tag;
+      background: var(--second);
+      border-radius: 12px;
+    }
+    .hot{
+      @extend %tag;
+      background: var(--wrong);
+      border-radius: 12px;
+    }
+  }
+  &__title{
+    @extend %sui_reg_24_32;
+    color: var(--main);
+    margin-bottom: 12px;
+  }
+  &__description{
+    @extend %sui_reg_16_24;
+    color: var(--letter);
+    margin-bottom: 24px;
+  }
+}

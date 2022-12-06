@@ -34,12 +34,15 @@ const Header = () => {
           <HeaderMenu />
         </div>
 
-        <div>
-          {headerButtons.map((item) => (
-            <React.Fragment key={item.text}>
-              {item.element({ children: item.text, linkTo: item.linkTo })}
-            </React.Fragment>
-          ))}
+        <div className={styles.header__buttons}>
+          {headerButtons.map((item) => {
+            const Button = item.element;
+            return (
+              <React.Fragment key={item.text}>
+                <Button linkTo={item.linkTo}>{item.text}</Button>
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
     </header>

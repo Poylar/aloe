@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './ButtonUI.module.scss';
 
-interface ButtonUiProps {
+export interface ButtonUiProps {
   children: React.ReactNode;
   linkTo?: string;
   className?: string;
@@ -40,4 +40,13 @@ const ButtonUITransparent: FC<ButtonUiProps> = ({
   </ButtonUi>
 );
 
-export { ButtonUiGreen, ButtonUITransparent };
+const ButtonUiWhite: FC<ButtonUiProps> = ({ children, linkTo, className }) => (
+  <ButtonUi
+    className={className !== undefined ? className : styles.button_white}
+    linkTo={linkTo}
+  >
+    {children}
+  </ButtonUi>
+);
+
+export { ButtonUiGreen, ButtonUITransparent, ButtonUiWhite };
