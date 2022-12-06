@@ -1,0 +1,43 @@
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
+
+.section{
+  width: 100%;
+  background: var(--mainBg);
+  border-radius: var(--sectionBR);
+  padding: 60px 0;
+  position: relative;
+  &__wrapper{
+    @extend %container;
+
+  }
+  &__title{
+    @extend %sui_reg_80_84;
+    color: var(--prim);
+    max-width: 1100px;
+    margin-bottom: 30px;
+    .titleIcon{
+      width: 80px;
+      height: 80px;
+      margin-bottom: -12px;
+    }
+  }
+  &__anoncer{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--prim);
+    opacity: 0.4;
+    transform: translate(0, 125px) rotate(-90deg);
+    cursor: vertical-text;
+  }
+  &__description{
+    max-width: 600px;
+    margin-left: auto;
+    .description{
+      @extend %sui_reg_20_30;
+      color: var(--prim);
+      margin-bottom: 30px;
+    }
+  }
+}

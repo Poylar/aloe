@@ -1,0 +1,24 @@
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
+
+.section{
+  padding: 60px 0 320px 0;
+  background-position: center center;
+  background-size: cover;
+  &__wrapper{
+    @extend %container;
+    .title{
+      @extend %sui_reg_80_84;
+      color: var(--prim);
+      margin-bottom: 40px;
+      max-width: 680px;
+    }
+    .description{
+      @extend %sui_reg_20_30;
+      color: var(--prim);
+      margin-bottom: 60px;
+      max-width: 680px;
+      text-indent: 40px;
+    }
+  }
+}

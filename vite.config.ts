@@ -11,8 +11,4 @@ export default defineConfig({
     open: '/',
   },
   plugins: [react()],
-
-  resolve: {
-    alias: [{ find: '@', replacement: '/src' }],
-  },
 });

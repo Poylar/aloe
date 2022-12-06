@@ -1,0 +1,19 @@
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
+
+.section{
+  background: linear-gradient(180deg, #16171A 36.84%, #313443 100%);
+  border-radius: var(--sectionBR);
+  padding: 60px 0;
+  &__wrapper{
+    @extend %container;
+    .title{
+      @extend %sui_reg_80_84;
+      color: var(--prim);
+      padding-right: 120px;
+    }
+    .icon{
+      margin-bottom: -12px;
+    }
+  }
+}
