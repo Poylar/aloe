@@ -1,7 +1,12 @@
-import { ButtonUiGreen, ButtonUiWhite } from '../../Components/UI/ButtonUI';
+import {
+  ButtonUIHide,
+  ButtonUiGreen,
+  ButtonUiWhite,
+} from '../../Components/UI/ButtonUI';
 import Bridge from '../../Layout/Blocks/Bridge';
 import Description from '../../Layout/Blocks/Description';
 import Mission from '../../Layout/Blocks/Mission';
+import Research from '../../Layout/Blocks/Research';
 import Sheet from '../../Layout/Blocks/Sheet';
 import './FrontPage.module.scss';
 
@@ -71,7 +76,36 @@ const FrontPage = () => {
             name: 'Go to file',
           },
         },
+        {
+          tags: [],
+          title: 'Comparison of stock and cryptocurrency markets',
+          description: 'A short visual guide for the investor',
+          cardButton: {
+            element: ButtonUiWhite,
+            archon: '/',
+            name: 'Go to file',
+          },
+        },
       ],
+    },
+    research: {
+      title: 'Researching deeper than 99,9% single investors',
+      description:
+        'These blockchains, employed correctly, will bridge the gap between ' +
+        'traditional and digital markets with the belief that decentralized ' +
+        'technologies with embedded financial incentives offer an ' +
+        'alternative to institutions.',
+      researchButton: {
+        element: ButtonUIHide,
+        archon: '/',
+        name: 'Join mailing list',
+      },
+    },
+    team: {
+      title: 'Aloe Core Team',
+      description:
+        'We have excellent experts with extensive experience in digital asset research',
+      social: [],
     },
   };
 
@@ -82,6 +116,7 @@ const FrontPage = () => {
       <Bridge pageData={page.bridge} />
       {/* nft form */}
       <Sheet pageData={page.sheets} />
+      <Research pageData={page.research} />
     </>
   );
 };

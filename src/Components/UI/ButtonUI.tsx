@@ -49,4 +49,13 @@ const ButtonUiWhite: FC<ButtonUiProps> = ({ children, linkTo, className }) => (
   </ButtonUi>
 );
 
-export { ButtonUiGreen, ButtonUITransparent, ButtonUiWhite };
+const ButtonUIHide: FC<ButtonUiProps> = ({ children, linkTo, className }) => (
+  <ButtonUi
+    className={className !== undefined ? className : styles.button_hide}
+    linkTo={linkTo}
+  >
+    {children}
+  </ButtonUi>
+);
+
+export { ButtonUiGreen, ButtonUITransparent, ButtonUiWhite, ButtonUIHide };

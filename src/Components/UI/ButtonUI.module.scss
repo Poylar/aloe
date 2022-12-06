@@ -12,6 +12,7 @@
   @extend %button;
   background: var(--second);
 }
+
 .button_transparent {
   @extend %button;
   background: rgba(0, 0, 0, 0.1);
@@ -23,4 +24,11 @@
   background: var(--prim);
   color: var(--main);
   border: 1px solid rgba(17, 17, 17, 0.2);
+}
+
+.button_hide{
+  @extend %button;
+  background: transparent;
+  color: var(--prim);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }

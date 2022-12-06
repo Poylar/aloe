@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { ButtonUiProps } from '../../Components/UI/ButtonUI';
+import SwiperSlider from '../../Components/UI/SwiperSlider';
 import styles from './Sheet.module.scss';
 
-interface Card {
+export interface ICard {
   tags: string[];
   title: string;
   description: string;
@@ -14,22 +15,32 @@ interface Card {
   };
 }
 
-interface SheetsProps {
+interface ISheetsProps {
   pageData: {
     title: string;
     description: string;
-    cards: Card[];
+    cards: ICard[];
   };
 }
 
-const SheetCard: FC<{ Card: Card }> = ({ Card }) => {
+interface ISheetCardProps {
+  Card: ICard;
+  index: number;
+}
+
+const SheetCard: FC<ISheetCardProps> = ({ Card, index }) => {
   const CardButton = Card.cardButton.element;
 
+  const cardI = [
+    index === 1 ? ` ${styles.green}` : '',
+    index === 2 ? ` ${styles.red}` : '',
+  ];
+
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${cardI.join(' ')}`}>
       <div className={styles.card__top}>
-        {Card.tags.map((tag, index) => (
-          <p key={index} className={tag === 'New' ? styles.new : styles.hot}>
+        {Card.tags.map((tag, tagI) => (
+          <p key={tagI} className={tag === 'New' ? styles.new : styles.hot}>
             {tag}
           </p>
         ))}
@@ -46,21 +57,27 @@ const SheetCard: FC<{ Card: Card }> = ({ Card }) => {
   );
 };
 
-const Sheet: FC<SheetsProps> = ({ pageData }) => (
-  <section className={styles.section}>
-    <div className={styles.section__wrapper}>
-      <div className={styles.top}>
-        <h2 className={styles.title}>{pageData.title}</h2>
-        <p className={styles.description}>{pageData.description}</p>
-      </div>
+const Sheet: FC<ISheetsProps> = ({ pageData }) => {
+  const cards = pageData.cards.map((card, index) => (
+    <SheetCard Card={card} index={index} />
+  ));
 
-      <div className={styles.cards}>
-        {pageData.cards.map((Card, index) => (
-          <SheetCard key={index} Card={Card} />
-        ))}
+  return (
+    <section className={styles.section}>
+      <div className={styles.section__wrapper}>
+        <div className={styles.top}>
+          <h2 className={styles.title}>{pageData.title}</h2>
+          <p className={styles.description}>{pageData.description}</p>
+        </div>
+
+        <SwiperSlider cards={cards} />
+
+        {/* {pageData.cards.map((Card, index) => ( */}
+        {/*   <SheetCard key={index} Card={Card} /> */}
+        {/* ))} */}
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Sheet;
