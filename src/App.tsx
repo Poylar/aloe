@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     if (pagePaths.filter((path) => path === location.pathname).length === 0) {
-      navigate('/');
+      navigate(pagePaths[0]);
     }
   }, [location.pathname]);
 

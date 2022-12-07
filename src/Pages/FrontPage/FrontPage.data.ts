@@ -110,7 +110,7 @@ export const FrontPageData = {
         image: '',
         name: 'Taylor Wallace',
         desc: 'Co-founder, Lead of Research Group',
-        socials: [{ type: 'tweeter', link: '/' }],
+        socials: [{ type: 'twitter', link: '/' }],
       },
       {
         image: '',

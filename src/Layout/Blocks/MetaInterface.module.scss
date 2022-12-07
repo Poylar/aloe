@@ -3,14 +3,12 @@
 
 .section{
   background: linear-gradient(180deg, #303341 0%, #16171A 36.84%);
-  border-radius: 40px;
-  max-height: 876px;
-  height: 100%;
-  overflow: hidden;
+  border-radius: var(--sectionBR);
   line-height: 0;
   font-size: 0;
+  overflow: hidden;
   .iframe{
-    height: 876px;
+    height: 950px;
     width: 100%;
   }
 }

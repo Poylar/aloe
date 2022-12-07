@@ -8,7 +8,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
-  padding: 570px 0 60px 0;
+  padding: 570px 0 var(--gap-y) 0;
   &__wrapper{
     display: flex;
     align-items: flex-start;
@@ -23,7 +23,7 @@
       color: var(--prim);
       @extend %sui_reg_20_30;
       max-width: 400px;
-      text-indent: 40px;
+      text-indent: var(--textIndend);
     }
   }
 }

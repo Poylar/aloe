@@ -1,0 +1,20 @@
+$breakpoints: (
+  full: 1920px,
+  xxl: 1400px,
+  xl: 1280px,
+  l: 1025px,
+  m: 769px,
+  s: 576px,
+  xs: 340px,
+);
+
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media ( max-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "err: wrong breakpoint, check breakpoint in _mixins.scss";
+  }
+}
+

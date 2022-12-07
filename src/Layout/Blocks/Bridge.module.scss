@@ -4,7 +4,7 @@
 .section{
   background: linear-gradient(180deg, #16171A 36.84%, #313443 100%);
   border-radius: var(--sectionBR);
-  padding: 60px 0;
+  padding: var(--gap-y) 0;
   &__wrapper{
     @extend %container;
     .title{

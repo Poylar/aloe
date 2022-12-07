@@ -29,7 +29,12 @@ const SocialIcon: FC<{ social: ISocial }> = ({ social }) => {
   }
 
   return (
-    <a href={social.link} className={styles.socialIcon}>
+    <a
+      href={social.link}
+      className={styles.socialIcon}
+      target='_blank'
+      rel='noreferrer'
+    >
       <img className={styles.img} src={image} alt='' />
     </a>
   );
