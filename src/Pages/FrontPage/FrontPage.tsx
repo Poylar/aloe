@@ -8,6 +8,7 @@ import Description from '../../Layout/Blocks/Description';
 import Mission from '../../Layout/Blocks/Mission';
 import Research from '../../Layout/Blocks/Research';
 import Sheet from '../../Layout/Blocks/Sheet';
+import Team from '../../Layout/Blocks/Team';
 import './FrontPage.module.scss';
 
 const FrontPage = () => {
@@ -105,7 +106,29 @@ const FrontPage = () => {
       title: 'Aloe Core Team',
       description:
         'We have excellent experts with extensive experience in digital asset research',
-      social: [],
+      cards: [
+        {
+          image: '',
+          name: 'Steven McKinney',
+          desc: 'Founder of Aloe Labs',
+          socials: [
+            { type: 'twitter', link: '/' },
+            { type: 'discord', link: '/' },
+          ],
+        },
+        {
+          image: '',
+          name: 'Taylor Wallace',
+          desc: 'Co-founder, Lead of Research Group',
+          socials: [{ type: 'tweeter', link: '/' }],
+        },
+        {
+          image: '',
+          name: 'Jennifer Allen',
+          desc: 'Project Manager',
+          socials: [{ type: 'twitter', link: '/' }],
+        },
+      ],
     },
   };
 
@@ -117,6 +140,7 @@ const FrontPage = () => {
       {/* nft form */}
       <Sheet pageData={page.sheets} />
       <Research pageData={page.research} />
+      <Team pageData={page.team} />
     </>
   );
 };

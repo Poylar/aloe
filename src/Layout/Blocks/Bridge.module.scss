@@ -8,7 +8,7 @@
   &__wrapper{
     @extend %container;
     .title{
-      @extend %sui_reg_80_84;
+      @extend %sui_light_80_84;
       color: var(--prim);
       padding-right: 120px;
     }

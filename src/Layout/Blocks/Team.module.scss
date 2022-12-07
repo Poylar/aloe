@@ -1,10 +1,65 @@
-@use '../../Assets/styles/global';
-@use '../../Assets/styles/typography';
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
 
+.section{
+  background: var(--prim);
+  border-radius: var(--sectionBR);
+  padding: 60px 0;
+  &__wrapper{
+    @extend %container;
+  }
+  &__text{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    .title{
+      margin-right: 40px;
+      @extend %sui_light_80_84;
+    }
+    .description{
+      max-width: 400px;
+      @extend %sui_reg_20_30;
+      text-indent: 40px;
+    }
+  }
+  &__cards{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
 
+.card{
+  flex: 1;
+  &:not(:last-child){
+    margin-right: 20px;
+  }
+  .image{
+    background: var(--imageBg);
+    border-radius: 24px;
+    margin-bottom: 30px;
+    height: 500px;
+    display: block;
+  }
+  .name{
+    @extend %sui_reg_24_32;
+    margin-bottom: 12px;
+  }
+  .desc{
+    color: var(--letter);
+    margin-bottom: 20px;
+  }
+}
 
-
-
+.socialIcon{
+  &:not(:last-child){
+    margin-right: 16px;
+  }
+  .img{
+    width: 20px;
+    height: 20px;
+  }
+}
 
 
 

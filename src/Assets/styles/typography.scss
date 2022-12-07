@@ -7,24 +7,24 @@
   }
 }
 
-// font('SuisseIntl', 'SuisseIntl-Black.otf', 900, normal);
-// font('SuisseIntl', 'SuisseIntl-BlackItalic.otf', 900, intalic);
-// font('SuisseIntl', 'SuisseIntl-Book.otf', 800, normal);
-// font('SuisseIntl', 'SuisseIntl-BookItalic.otf', 800, intalic);
-// font('SuisseIntl', 'SuisseIntl-Bold.otf', 700, normal);
-// font('SuisseIntl', 'SuisseIntl-BoldItalic.otf', 700, intalic);
-// font('SuisseIntl', 'SuisseIntl-SemiBold.otf', 600, normal);
-// font('SuisseIntl', 'SuisseIntl-SemiBoldItalic.otf', 600, intalic);
-// font('SuisseIntl', 'SuisseIntl-Medium.otf', 500, normal);
-// font('SuisseIntl', 'SuisseIntl-MediumItalic.otf', 500, intalic);
+// @include font('SuisseIntl', 'SuisseIntl-Black.otf', 900, normal);
+// @include font('SuisseIntl', 'SuisseIntl-BlackItalic.otf', 900, intalic);
+// @include font('SuisseIntl', 'SuisseIntl-Book.otf', 800, normal);
+// @include font('SuisseIntl', 'SuisseIntl-BookItalic.otf', 800, intalic);
+// @include font('SuisseIntl', 'SuisseIntl-Bold.otf', 700, normal);
+// @include font('SuisseIntl', 'SuisseIntl-BoldItalic.otf', 700, intalic);
+// @include font('SuisseIntl', 'SuisseIntl-SemiBold.otf', 600, normal);
+// @include font('SuisseIntl', 'SuisseIntl-SemiBoldItalic.otf', 600, intalic);
+// @include font('SuisseIntl', 'SuisseIntl-Medium.otf', 500, normal);
+// @include font('SuisseIntl', 'SuisseIntl-MediumItalic.otf', 500, intalic);
 @include font('SuisseIntl', 'SuisseIntl-Regular.otf', 400, normal);
 // font('SuisseIntl', 'SuisseIntl-RegularItalic.otf', 400, intalic);
-// font('SuisseIntl', 'SuisseIntl-Light.otf', 300, normal);
-// font('SuisseIntl', 'SuisseIntl-LightItalic.otf', 300, intalic);
-// font('SuisseIntl', 'SuisseIntl-Ultralight.otf', 200, normal);
-// font('SuisseIntl', 'SuisseIntl-UltralightItalic.otf', 200, intalic);
-// font('SuisseIntl', 'SuisseIntl-Thin.otf', 100, normal);
-// font('SuisseIntl', 'SuisseIntl-ThinItalic.otf', 100, intalic);
+@include font('SuisseIntl', 'SuisseIntl-Light.otf', 300, normal);
+// @include font('SuisseIntl', 'SuisseIntl-LightItalic.otf', 300, intalic);
+// @include font('SuisseIntl', 'SuisseIntl-Ultralight.otf', 200, normal);
+// @include font('SuisseIntl', 'SuisseIntl-UltralightItalic.otf', 200, intalic);
+// @include font('SuisseIntl', 'SuisseIntl-Thin.otf', 100, normal);
+// @include font('SuisseIntl', 'SuisseIntl-ThinItalic.otf', 100, intalic);
 
 %sui_reg {
   font-family: 'SuisseIntl', sans-serif;
@@ -52,5 +52,16 @@
     font-size: 24px;
     line-height: 32px;
     letter-spacing: -0.02em;
+  }
+}
+
+%sui_light {
+  font-family: 'SuisseIntl', sans-serif;
+  font-weight: 300;
+  &_80_84 {
+    @extend %sui_light;
+    font-size: 80px;
+    line-height: 84px;
+    letter-spacing: -0.03em;
   }
 }

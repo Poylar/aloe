@@ -15,7 +15,7 @@
     justify-content: space-between;
     .title{
       color: var(--main);
-      @extend %sui_reg_80_84;
+      @extend %sui_light_80_84;
       max-width: 680px;
       margin-right: 20px;
     }
@@ -36,7 +36,7 @@
   background: var(--prim);
   padding: 20px 20px 30px 20px;
   min-height: 400px;
-  min-width: 440px;
+  width: 100%;
   border-radius: 24px;
   flex: 1;
   display: flex;

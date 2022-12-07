@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import styles from './Header.module.scss';
@@ -7,36 +7,14 @@ interface INavItem {
   name: string;
   archon: string;
 }
-const menu: INavItem[] = [
-  {
-    name: 'Mission',
-    archon: '#mission',
-  },
-  {
-    name: 'Bridge',
-    archon: '#bridge',
-  },
-  {
-    name: 'Spreadsheets',
-    archon: '#speadsheets',
-  },
-  {
-    name: 'Team',
-    archon: '#team',
-  },
-  {
-    name: 'Contacts',
-    archon: '#contacts',
-  },
-];
 
-const HeaderMenu = () => {
+const HeaderMenu: FC<{ navItems: INavItem[] }> = ({ navItems }) => {
   const { hash } = useLocation();
 
   return (
     <nav className={styles.headerMenu}>
       <ul className={styles.headerMenu__wrapper}>
-        {menu.map((item) => (
+        {navItems.map((item) => (
           <li
             key={item.archon}
             className={`${styles.navItem} ${

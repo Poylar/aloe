@@ -1,0 +1,11 @@
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
+
+
+.footer{
+  background: var(--mainBg);
+  border-radius: 40px 40px 0 0;
+  &__wrapper{
+    @extend %container;
+  }
+}
