@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './Assets/styles/global.scss';
-import { ButtonUITransparent, ButtonUiGreen } from './Components/UI/ButtonUI';
 import Footer from './Layout/Footer/Footer';
 import Header from './Layout/Header/Header';
 import FrontPage from './Pages/FrontPage/FrontPage';
@@ -12,12 +11,12 @@ const App = () => {
     header: {
       headerButtons: [
         {
-          element: ButtonUITransparent,
+          element: 'transparent',
           text: 'Join mailing list',
           linkTo: '#email',
         },
         {
-          element: ButtonUiGreen,
+          element: 'green',
           text: 'Bridge assets',
           linkTo: '/',
         },
@@ -30,7 +29,39 @@ const App = () => {
         { name: 'Contacts', archon: '#contacts' },
       ],
     },
-    footer: {},
+    footer: {
+      title: 'Join our report mailing list %mail%',
+      description:
+        'We have excellent experts with extensive experience in digital ' +
+        'asset research',
+      form: {
+        placeholder: 'Email',
+        buttonText: 'Send',
+      },
+      logoButton: {
+        element: 'green',
+        text: 'Bridge assets',
+        linkTo: '/',
+      },
+      copyright: {
+        text: '© 2022. Aloe Labs.',
+        icon: {
+          type: 'whiteTwitter',
+          link: '/',
+        },
+      },
+      links: [
+        { name: 'Mission', archon: '#mission' },
+        { name: 'Spreadsheets', archon: '#speadsheets' },
+        { name: 'DeFi Solutions', archon: '#defiSolutions' },
+        { name: 'Team', archon: '#team' },
+        { name: 'Contacts', archon: '#contacts' },
+      ],
+      termLink: {
+        name: 'Terms of Conditions',
+        link: '/',
+      },
+    },
   };
 
   return (
@@ -39,7 +70,7 @@ const App = () => {
       <Routes>
         <Route index element={<FrontPage />} />
       </Routes>
-      <Footer />
+      <Footer pageData={defaultPageData.footer} />
     </>
   );
 };

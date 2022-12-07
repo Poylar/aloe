@@ -1,8 +1,3 @@
-import {
-  ButtonUIHide,
-  ButtonUiGreen,
-  ButtonUiWhite,
-} from '../../Components/UI/ButtonUI';
 import Bridge from '../../Layout/Blocks/Bridge';
 import Description from '../../Layout/Blocks/Description';
 import Mission from '../../Layout/Blocks/Mission';
@@ -31,7 +26,7 @@ const FrontPage = () => {
         'decentralized technologies with embedded financial incentives offer ' +
         'an alternative to institutions.',
       descriptionButton: {
-        element: ButtonUiGreen,
+        element: 'green',
         archon: '/',
         name: 'Our team',
       },
@@ -51,7 +46,7 @@ const FrontPage = () => {
           title: 'Cryptos February ‘23',
           description: 'The shortlist of tokens that our group is betting on',
           cardButton: {
-            element: ButtonUiWhite,
+            element: 'white',
             archon: '/',
             name: 'Go to file',
           },
@@ -62,7 +57,7 @@ const FrontPage = () => {
           description:
             'The Aloe Labs team conducted a study using artificial intelligence',
           cardButton: {
-            element: ButtonUiWhite,
+            element: 'white',
             archon: '/',
             name: 'Go to file',
           },
@@ -72,7 +67,7 @@ const FrontPage = () => {
           title: 'Comparison of stock and cryptocurrency markets',
           description: 'A short visual guide for the investor',
           cardButton: {
-            element: ButtonUiWhite,
+            element: 'white',
             archon: '/',
             name: 'Go to file',
           },
@@ -82,7 +77,7 @@ const FrontPage = () => {
           title: 'Comparison of stock and cryptocurrency markets',
           description: 'A short visual guide for the investor',
           cardButton: {
-            element: ButtonUiWhite,
+            element: 'white',
             archon: '/',
             name: 'Go to file',
           },
@@ -97,7 +92,7 @@ const FrontPage = () => {
         'technologies with embedded financial incentives offer an ' +
         'alternative to institutions.',
       researchButton: {
-        element: ButtonUIHide,
+        element: 'hide',
         archon: '/',
         name: 'Join mailing list',
       },

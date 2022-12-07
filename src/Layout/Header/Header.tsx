@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import logoImage from '../../Assets/icons/logo.svg';
-import { ButtonUiProps } from '../../Components/UI/ButtonUI';
+import Button from '../../Components/UI/ButtonUI';
 import styles from './Header.module.scss';
 import HeaderMenu from './HeaderMenu';
 
 interface IHeaderButton {
-  element: React.FC<ButtonUiProps>;
+  element: string;
   text: string;
   linkTo: string;
 }
@@ -36,14 +36,14 @@ const Header: FC<IHeader> = ({ pageData }) => (
       </div>
 
       <div className={styles.header__buttons}>
-        {pageData.headerButtons.map((item) => {
-          const Button = item.element;
-          return (
-            <React.Fragment key={item.text}>
-              <Button linkTo={item.linkTo}>{item.text}</Button>
-            </React.Fragment>
-          );
-        })}
+        {pageData.headerButtons.map((item, index) => (
+          <Button
+            key={index}
+            linkTo={item.linkTo}
+            text={item.text}
+            element={item.element}
+          />
+        ))}
       </div>
     </div>
   </header>

@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
-import { ButtonUiProps } from '../../Components/UI/ButtonUI';
+import Button from '../../Components/UI/ButtonUI';
 import SwiperSlider from '../../Components/UI/SwiperSlider';
 import styles from './Sheet.module.scss';
 
@@ -9,7 +9,7 @@ export interface ICard {
   title: string;
   description: string;
   cardButton: {
-    element: React.FC<ButtonUiProps>;
+    element: string;
     archon: string;
     name: string;
   };
@@ -29,8 +29,6 @@ interface ISheetCardProps {
 }
 
 const SheetCard: FC<ISheetCardProps> = ({ Card, index }) => {
-  const CardButton = Card.cardButton.element;
-
   const cardI = [
     index === 1 ? ` ${styles.green}` : '',
     index === 2 ? ` ${styles.red}` : '',
@@ -49,9 +47,12 @@ const SheetCard: FC<ISheetCardProps> = ({ Card, index }) => {
       <div>
         <h3 className={styles.card__title}>{Card.title}</h3>
         <p className={styles.card__description}>{Card.description}</p>
-        <CardButton linkTo={Card.cardButton.archon}>
-          {Card.cardButton.name}
-        </CardButton>
+
+        <Button
+          text={Card.cardButton.name}
+          linkTo={Card.cardButton.archon}
+          element={Card.cardButton.element}
+        />
       </div>
     </div>
   );

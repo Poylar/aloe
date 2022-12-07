@@ -1,13 +1,7 @@
 import React, { FC } from 'react';
 
-import discord from '../../Assets/icons/discord.svg';
-import twitter from '../../Assets/icons/twitter.svg';
+import SocialIcon, { ISocial } from '../../Components/UI/SocialIcon';
 import styles from './Team.module.scss';
-
-interface ISocial {
-  type: string;
-  link: string;
-}
 
 interface ITeamCard {
   image: string;
@@ -21,17 +15,6 @@ interface ITeamProps {
   description: string;
   cards: ITeamCard[];
 }
-
-const TeamSocial: FC<{ social: ISocial }> = ({ social }) => {
-  const { type, link } = social;
-  const image = type === 'discord' ? discord : twitter;
-
-  return (
-    <a href={link} className={styles.socialIcon}>
-      <img className={styles.img} src={image} alt='' />
-    </a>
-  );
-};
 
 const TeamCard: FC<{ card: ITeamCard }> = ({ card }) => {
   const { image, name, desc, socials } = card;
@@ -47,7 +30,7 @@ const TeamCard: FC<{ card: ITeamCard }> = ({ card }) => {
       <p className={styles.desc}>{desc}</p>
 
       {socials.map((social, index) => (
-        <TeamSocial social={social} key={index} />
+        <SocialIcon social={social} key={index} />
       ))}
     </div>
   );
