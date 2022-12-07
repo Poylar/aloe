@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react';
 import * as path from 'path';
 
 // https://vitejs.dev/config/
+
 export default defineConfig({
-  // base: '/aloe/',
+  base: `${process.env.NODE_GP ? '/aloe/' : ''}`,
   css: {
     devSourcemap: true,
   },
