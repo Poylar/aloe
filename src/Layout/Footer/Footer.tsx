@@ -12,6 +12,7 @@ interface IFooterLink {
 
 interface IFooterProps {
   pageData: {
+    id: string;
     title: string;
     description: string;
 
@@ -39,26 +40,28 @@ interface IFooterProps {
   };
 }
 
-const Footer: FC<IFooterProps> = ({ pageData }) => {
-  const { title, description, form, logoButton, links, copyright, termLink } =
-    pageData;
+const Footer: FC<IFooterProps> = ({ pageData }) => (
+  <footer className={styles.footer} id={pageData.id}>
+    <div className={styles.footer__wrapper}>
+      <FooterTop
+        title={pageData.title}
+        description={pageData.description}
+        placeholder={pageData.form.placeholder}
+        buttonText={pageData.form.buttonText}
+      />
 
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.footer__wrapper}>
-        <FooterTop
-          title={title}
-          description={description}
-          placeholder={form.placeholder}
-          buttonText={form.buttonText}
-        />
+      <FooterBottom
+        pageData={{ logoButton: pageData.logoButton, links: pageData.links }}
+      />
 
-        <FooterBottom pageData={{ logoButton, links }} />
-
-        <FooterTerms pageData={{ copyright, termLink }} />
-      </div>
-    </footer>
-  );
-};
+      <FooterTerms
+        pageData={{
+          copyright: pageData.copyright,
+          termLink: pageData.termLink,
+        }}
+      />
+    </div>
+  </footer>
+);
 
 export default Footer;

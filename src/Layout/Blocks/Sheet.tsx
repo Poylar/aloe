@@ -17,6 +17,7 @@ export interface ICard {
 
 interface ISheetsProps {
   pageData: {
+    id: string;
     title: string;
     description: string;
     cards: ICard[];
@@ -64,7 +65,7 @@ const Sheet: FC<ISheetsProps> = ({ pageData }) => {
   ));
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id={pageData.id}>
       <div className={styles.section__wrapper}>
         <div className={styles.top}>
           <h2 className={styles.title}>{pageData.title}</h2>

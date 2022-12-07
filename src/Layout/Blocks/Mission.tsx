@@ -7,6 +7,7 @@ import styles from './Mission.module.scss';
 
 interface MissionProps {
   pageData: {
+    id: string;
     title: string;
     description: string;
     anoncer: string;
@@ -24,7 +25,7 @@ const cryptoIcons = {
 };
 
 const Mission: FC<MissionProps> = ({ pageData }) => (
-  <section className={styles.section}>
+  <section className={styles.section} id={pageData.id}>
     <div className={styles.section__wrapper}>
       <h2 className={styles.section__title}>
         {pageData.title.split('%').map((str, index) => {

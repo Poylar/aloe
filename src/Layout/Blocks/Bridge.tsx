@@ -6,6 +6,7 @@ import styles from './Bridge.module.scss';
 interface Props {
   pageData: {
     text: string;
+    id: string;
   };
 }
 
@@ -14,7 +15,7 @@ const icons = {
 };
 
 const Bridge: FC<Props> = ({ pageData }) => (
-  <section className={styles.section}>
+  <section className={styles.section} id={pageData.id}>
     <div className={styles.section__wrapper}>
       <h2 className={styles.title}>
         {pageData.text.split('%').map((item, index) => {

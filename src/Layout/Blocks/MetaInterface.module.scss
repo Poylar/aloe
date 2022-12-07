@@ -1,0 +1,16 @@
+@use '../../assets/styles/global' as *;
+@use '../../assets/styles/typography' as *;
+
+.section{
+  background: linear-gradient(180deg, #303341 0%, #16171A 36.84%);
+  border-radius: 40px;
+  max-height: 876px;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+  .iframe{
+    height: 876px;
+    width: 100%;
+  }
+}
