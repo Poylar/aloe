@@ -6,8 +6,11 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({command, mode}) => {
   process.env.NODE_GP = process.env.NODE_GP !== undefined ? process.env.NODE_GP : 'false';
 
+  // @ts-ignore
+  const base = process.env.NODE_GP == 1 ? '/aloe/' : ''
+
   return {
-    base: `${process.env.NODE_GP === 'true' ? '/aloe/' : ''}`,
+    base: base,
     envDir: './',
     css: {
       devSourcemap: mode === 'development',

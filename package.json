@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "tsc && vite build",
-    "deployBuild": "set NODE_GP=true && tsc && vite build",
+    "deployGP": "deploy.sh",
+    "deployBuild": "set NODE_GP=1 && tsc && vite build",
     "preview": "vite preview",
     "lint": "npx eslint ./src/**/*.tsx --ext js,jsx,tsx,ts --fix",
     "rules": "npx eslint ./src/**/*.tsx --ext js,jsx,tsx,ts"
