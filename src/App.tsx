@@ -19,11 +19,11 @@ const App = () => {
     }
   }, [location.hash]);
 
-  useEffect(() => {
-    if (pagePaths.filter((path) => path === location.pathname).length === 0) {
-      navigate(pagePaths[0]);
-    }
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   if (pagePaths.filter((path) => path === location.pathname).length === 0) {
+  //     navigate(pagePaths[0]);
+  //   }
+  // }, [location.pathname]);
 
   return (
     <>

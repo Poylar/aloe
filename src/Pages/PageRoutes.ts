@@ -3,7 +3,7 @@ import FrontPage from './FrontPage/FrontPage';
 
 // @ts-ignore
 const { BASE_URL } = import.meta.env;
-const baseUrl = BASE_URL !== undefined ? BASE_URL : '/';
+const baseUrl = BASE_URL !== undefined ? BASE_URL : '#';
 
 export const PageRoutes = [
   {
@@ -12,7 +12,7 @@ export const PageRoutes = [
   },
   {
     element: AdminPage,
-    path: `${baseUrl}admin`,
+    path: `${baseUrl}/admin`,
   },
 ];
 
