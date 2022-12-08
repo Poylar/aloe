@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import Button from '../../Components/UI/ButtonUI';
 import SwiperSlider from '../../Components/UI/SwiperSlider';
+import useMedia from '../../Hooks/useMedia';
 import styles from './Sheet.module.scss';
 
 export interface ICard {
@@ -73,10 +74,6 @@ const Sheet: FC<ISheetsProps> = ({ pageData }) => {
         </div>
 
         <SwiperSlider cards={cards} />
-
-        {/* {pageData.cards.map((Card, index) => ( */}
-        {/*   <SheetCard key={index} Card={Card} /> */}
-        {/* ))} */}
       </div>
     </section>
   );

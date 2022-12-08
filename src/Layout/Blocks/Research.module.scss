@@ -1,10 +1,14 @@
-@use '../../assets/styles/global' as *;
-@use '../../assets/styles/typography' as *;
+@import '../../assets/styles/global';
+@import '../../assets/styles/typography';
+@import '../../assets/styles/media';
 
 .section{
   padding: var(--gap-y) 0 320px 0;
   background-position: center center;
   background-size: cover;
+  @include media(l){
+    padding-bottom: 200px;
+  }
   &__wrapper{
     @extend %container;
     .title{

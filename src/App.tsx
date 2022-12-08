@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
-import './Assets/styles/global.scss';
 import Footer from './Layout/Footer/Footer';
 import Header from './Layout/Header/Header';
 import { defaultPageData } from './Layout/defaultPageData';
@@ -28,7 +27,10 @@ const App = () => {
 
   return (
     <>
-      <Header pageData={defaultPageData.header} />
+      {location.pathname === '/admin' ? null : (
+        <Header pageData={defaultPageData.header} hash={location.hash} />
+      )}
+
       <main>
         <Routes>
           {PageRoutes.map((item, index) => (
@@ -41,7 +43,10 @@ const App = () => {
           ))}
         </Routes>
       </main>
-      <Footer pageData={defaultPageData.footer} />
+
+      {location.pathname === '/admin' ? null : (
+        <Footer pageData={defaultPageData.footer} />
+      )}
     </>
   );
 };

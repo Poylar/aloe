@@ -1,3 +1,4 @@
+import '../../Assets/styles/reseter.scss';
 import Bridge from '../../Layout/Blocks/Bridge';
 import Description from '../../Layout/Blocks/Description';
 import MetaInterface from '../../Layout/Blocks/MetaInterface';

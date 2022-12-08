@@ -1,5 +1,5 @@
-@use '../../assets/styles/global' as *;
-@use '../../assets/styles/typography' as *;
+@import '../../assets/styles/global';
+@import '../../assets/styles/typography';
 
 .section{
   background: var(--prim);
@@ -12,9 +12,18 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--gap-y);
+    @include media(l){
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
     .title{
       margin-right: 40px;
       @extend %sui_light_80_84;
+      @include media(l){
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
     }
     .description{
       max-width: 400px;
@@ -40,6 +49,10 @@
     margin-bottom: 30px;
     height: 500px;
     display: block;
+    @include media(l){
+      height: 320px;
+      max-width: 320px;
+    }
   }
   .name{
     @extend %sui_reg_24_32;

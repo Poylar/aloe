@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import SocialIcon, { ISocial } from '../../Components/UI/SocialIcon';
+import SwiperSlider from '../../Components/UI/SwiperSlider';
 import styles from './Team.module.scss';
 
 interface ITeamCard {
@@ -37,21 +38,23 @@ const TeamCard: FC<{ card: ITeamCard }> = ({ card }) => {
   );
 };
 
-const Team: FC<{ pageData: ITeamProps }> = ({ pageData }) => (
-  <section className={styles.section} id={pageData.id}>
-    <div className={styles.section__wrapper}>
-      <div className={styles.section__text}>
-        <h1 className={styles.title}>{pageData.title}</h1>
-        <p className={styles.description}>{pageData.description}</p>
-      </div>
+const Team: FC<{ pageData: ITeamProps }> = ({ pageData }) => {
+  const cards = pageData.cards.map((card) => <TeamCard card={card} />);
 
-      <div className={styles.section__cards}>
-        {pageData.cards.map((card, index) => (
-          <TeamCard card={card} key={index} />
-        ))}
+  return (
+    <section className={styles.section} id={pageData.id}>
+      <div className={styles.section__wrapper}>
+        <div className={styles.section__text}>
+          <h1 className={styles.title}>{pageData.title}</h1>
+          <p className={styles.description}>{pageData.description}</p>
+        </div>
+
+        <div className={styles.section__cards}>
+          <SwiperSlider cards={cards} />
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Team;

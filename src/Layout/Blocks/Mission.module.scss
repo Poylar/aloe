@@ -1,5 +1,6 @@
-@use '../../assets/styles/global' as *;
-@use '../../assets/styles/typography' as *;
+@import '../../assets/styles/global';
+@import '../../assets/styles/typography';
+@import '../../assets/styles/media';
 
 .section{
   width: 100%;
@@ -16,10 +17,18 @@
     max-width: 1100px;
     margin-bottom: 30px;
     margin-right: 80px;
+    @include media(l){
+      margin-right: 0;
+    }
     .titleIcon{
       width: 80px;
       height: 80px;
       margin-bottom: -12px;
+      @include media(l){
+        width: 40px;
+        height: 40px;
+        margin-bottom: -6px;
+      }
     }
   }
   &__anoncer{
@@ -30,10 +39,17 @@
     opacity: 0.4;
     transform: translate(0, 125px) rotate(-90deg);
     cursor: vertical-text;
+    @include media(l){
+      display: none;
+    }
   }
   &__description{
     max-width: 600px;
     margin-left: auto;
+    @include media(l){
+      margin-left: 0;
+      max-width: 100%;
+    }
     .description{
       @extend %sui_reg_20_30;
       color: var(--prim);

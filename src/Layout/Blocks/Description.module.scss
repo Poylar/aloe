@@ -1,5 +1,6 @@
-@use '../../assets/styles/global' as *;
-@use '../../assets/styles/typography' as *;
+@import '../../assets/styles/global';
+@import '../../assets/styles/typography';
+@import '../../assets/styles/media';
 
 .section{
   display: flex;
@@ -9,15 +10,24 @@
   background-repeat: no-repeat;
   background-position: top center;
   padding: 570px 0 var(--gap-y) 0;
+  @include media(l){
+    padding-top: 290px;
+  }
   &__wrapper{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     @extend %container;
+    @include media(l){
+      flex-direction: column;
+    }
     .title{
       color: var(--prim);
       @extend %sui_reg_80_84;
       max-width: 670px;
+      @include media(l){
+        margin-bottom: 20px;
+      }
     }
     .desc{
       color: var(--prim);

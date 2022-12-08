@@ -1,5 +1,4 @@
-@use '../../assets/styles/global' as *;
-@use '../../assets/styles/typography' as *;
+@import "../../Assets/styles/media";
 
 .section{
   background: linear-gradient(180deg, #303341 0%, #16171A 36.84%);
@@ -10,5 +9,8 @@
   .iframe{
     height: 950px;
     width: 100%;
+    @include media(m){
+      height: 660px;
+    }
   }
 }

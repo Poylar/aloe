@@ -1,45 +1,6 @@
-@use 'colors' as *;
-@use 'typography' as *;
-@use 'media' as *;
-
-body{
-  background: var(--main);
-}
-
-%breakPoints{
-
-}
-
-:root {
-  @extend %colorsRoot;
-  --container: 1400px;
-  @include media(xxl){
-    --container: 100%;
-  }
-  --gap: 20px;
-  --gap-y: 60px;
-  --sectionBR: 40px;
-  --textIndend: 40px;
-}
-
 %container {
   max-width: var(--container);
   width: 100%;
   padding: 0 var(--gap);
   margin: 0 auto;
-}
-
-*,
-*:before,
-*:after {
-  @extend %sui_reg_16_24; // default font
-  color: var(--main);
-  box-sizing: border-box;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  background: none;
-  border: 0;
-  outline: 0;
 }

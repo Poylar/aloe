@@ -1,3 +1,5 @@
+@import "media";
+
 @mixin font($fontFamily, $fontFullName, $fontWeight, $fontStyle) {
   @font-face {
     font-family: $fontFamily;
@@ -40,12 +42,22 @@
     font-size: 80px;
     line-height: 84px;
     letter-spacing: -0.03em;
+    @include media(l){
+      font-size: 48px;
+      line-height: 50px;
+      letter-spacing: -0.02em;
+    }
   }
   &_20_30{
     @extend %sui_reg;
     font-size: 20px;
     line-height: 30px;
     letter-spacing: -0.01em;
+    @include media(l){
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.005em;
+    }
   }
   &_24_32{
     @extend %sui_reg;
@@ -63,5 +75,10 @@
     font-size: 80px;
     line-height: 84px;
     letter-spacing: -0.03em;
+    @include media(l){
+      font-size: 36px;
+      line-height: 38px;
+      letter-spacing: -0.02em;
+    }
   }
 }
