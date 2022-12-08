@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <>
-      {location.pathname === '/admin' ? null : (
+      {location.pathname === '/aloe/admin' ? null : (
         <Header pageData={defaultPageData.header} hash={location.hash} />
       )}
 
@@ -44,7 +44,7 @@ const App = () => {
         </Routes>
       </main>
 
-      {location.pathname === '/admin' ? null : (
+      {location.pathname === '/aloe/admin' ? null : (
         <Footer pageData={defaultPageData.footer} />
       )}
     </>
