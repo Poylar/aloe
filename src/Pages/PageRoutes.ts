@@ -12,7 +12,7 @@ export const PageRoutes = [
   },
   {
     element: AdminPage,
-    path: `${baseUrl}/admin`,
+    path: `${baseUrl}admin`,
   },
 ];
 
