@@ -1,58 +1,74 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
+import { IEmailItem } from '../../App.types';
+import cites from '../../Database/Firebase';
 import styles from './AdminPage.module.scss';
 
-// @ts-ignore
-const binId = import.meta.env.VITE_BIND_ID;
-
-interface ItemMail {
-  email: string;
-  time: string;
-}
-
 const AdminPage = () => {
+  const initialLoginState = localStorage.getItem('ALOE_IS_LOGIN');
+
   const [pass, setPass] = useState<string>('');
-  const [isLogin, setIsLogin] = useState<boolean>(false);
-  const [emails, setEmails] = useState<ItemMail[]>([]);
+  const [isLogin, setIsLogin] = useState<boolean>(initialLoginState === 'true');
+  const [emails, setEmails] = useState<IEmailItem[]>([]);
 
   document.querySelector('body')?.classList.add(styles.admin);
 
-  const getBin = () => {
-    axios
-      .get(`https://api.jsonbin.io/v3/b/${binId}/latest?meta=false`)
-      .then((res) => {
-        setEmails(res.data.emails);
-      });
+  useEffect(() => {
+    cites.getEmails(cites.firebaseDataBase).then((response) => {
+      setEmails(response[0].emails);
+    });
+  }, []);
+
+  const loginHandler = () => {
+    // @ts-ignore
+    if (pass === import.meta.env.VITE_ADMIN_PASS) {
+      setIsLogin(true);
+      localStorage.setItem('ALOE_IS_LOGIN', 'true');
+    }
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      getBin();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const unLoginHandler = () => {
+    setIsLogin(false);
+    localStorage.removeItem('ALOE_IS_LOGIN');
+  };
+
+  const deleteButtonHandler = (current: IEmailItem) => {
+    cites.removeCurrentEmail(cites.firebaseDataBase, current).then(() => {
+      setEmails(
+        emails.filter(
+          (item) => item.email === current.email && item.time === current.time
+        )
+      );
+    });
+  };
 
   if (isLogin) {
     return (
       <div className={styles.adminka}>
+        <button style={{ marginBottom: '20px' }} onClick={unLoginHandler}>
+          sing out
+        </button>
         {emails.length > 0 ? (
           emails.map((mail, index) => {
-            if (mail.email !== '' || mail.time !== '') {
-              const date = new Date(mail.time);
-              const time = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}`;
+            const date = new Date(mail.time);
+            const time = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}`;
 
-              return (
-                <div key={index} className={styles.emailString}>
-                  <p className={styles.email}>{mail.email}</p>
-                  <p className={styles.time}>{time}</p>
-                </div>
-              );
-            }
-            return null;
+            return (
+              <div key={index} className={styles.emailString}>
+                <p className={styles.email}>{mail.email}</p>
+                <p className={styles.time}>{time}</p>
+                <button
+                  onClick={() =>
+                    deleteButtonHandler({ email: mail.email, time: mail.time })
+                  }
+                >
+                  delete
+                </button>
+              </div>
+            );
           })
         ) : (
-          <p>Loading...</p>
+          <p>loading or emails list is clear</p>
         )}
       </div>
     );
@@ -65,16 +81,7 @@ const AdminPage = () => {
         value={pass}
         onChange={(e) => setPass(e.target.value)}
       />
-      <button
-        onClick={() => {
-          // @ts-ignore
-          if (pass === import.meta.env.VITE_ADMIN_PASS) {
-            setIsLogin(true);
-          }
-        }}
-      >
-        login
-      </button>
+      <button onClick={loginHandler}>login</button>
     </div>
   );
 };

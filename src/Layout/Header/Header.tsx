@@ -4,24 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import logoImage from '../../Assets/icons/logo.svg';
 import Button from '../../Components/UI/ButtonUI';
 import useMedia from '../../Hooks/useMedia';
+import { IHeaderPageData } from '../defaultPageData.types';
 import styles from './Header.module.scss';
 
-interface IHeader {
-  pageData: {
-    headerButtons: {
-      element: string;
-      text: string;
-      linkTo: string;
-    }[];
-    navItems: {
-      name: string;
-      archon: string;
-    }[];
-  };
+const DesktopHeader: FC<{
+  pageData: IHeaderPageData;
   hash: string;
-}
-
-const DesktopHeader: FC<IHeader> = ({ pageData, hash }) => (
+}> = ({ pageData, hash }) => (
   <header className={styles.header}>
     <div className={styles.header__wrapper}>
       <div className={styles.header__nav}>
@@ -59,7 +48,10 @@ const DesktopHeader: FC<IHeader> = ({ pageData, hash }) => (
   </header>
 );
 
-const MobileHeader: FC<IHeader> = ({ pageData, hash }) => {
+const MobileHeader: FC<{
+  pageData: IHeaderPageData;
+  hash: string;
+}> = ({ pageData, hash }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuClickHandler = () => {
@@ -112,7 +104,10 @@ const MobileHeader: FC<IHeader> = ({ pageData, hash }) => {
   );
 };
 
-const Header: FC<IHeader> = ({ pageData }) => {
+const Header: FC<{
+  pageData: IHeaderPageData;
+  hash: string;
+}> = ({ pageData }) => {
   const { hash } = useLocation();
   const windowWidth = useMedia();
 

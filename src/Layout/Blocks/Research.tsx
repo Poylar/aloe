@@ -2,23 +2,12 @@ import React, { FC } from 'react';
 
 import researchImageBg from '../../Assets/images/researchBg.png';
 import Button from '../../Components/UI/ButtonUI';
+import { IResearchPageData } from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Research.module.scss';
 
-interface ResearchProps {
-  pageData: {
-    title: string;
-    description: string;
-    researchButton: {
-      element: string;
-      archon: string;
-      name: string;
-    };
-  };
-}
-
-const Research: FC<ResearchProps> = ({ pageData }) => (
-  // const Button = pageData.researchButton.element;
-
+const Research: FC<{
+  pageData: IResearchPageData;
+}> = ({ pageData }) => (
   <section
     className={styles.section}
     style={{ backgroundImage: `url(${researchImageBg})` }}

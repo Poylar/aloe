@@ -1,14 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import Footer from './Layout/Footer/Footer';
 import Header from './Layout/Header/Header';
-import { defaultPageData } from './Layout/defaultPageData';
+import getDefaultPageData from './Layout/defaultPageData';
+import { IDefaultPageData } from './Layout/defaultPageData.types';
 import { PageRoutes, pagePaths } from './Pages/PageRoutes';
 
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [defaultPageData, setDefaultPageData] = useState<IDefaultPageData>();
+
+  useEffect(() => {
+    getDefaultPageData().then((data: IDefaultPageData) => {
+      setDefaultPageData(data);
+    });
+  }, []);
 
   useEffect(() => {
     const sectionElement = document.getElementById(
@@ -27,9 +35,9 @@ const App = () => {
 
   return (
     <>
-      {location.pathname === '/aloe/admin' ? null : (
+      {location.pathname !== '/admin' && defaultPageData !== undefined ? (
         <Header pageData={defaultPageData.header} hash={location.hash} />
-      )}
+      ) : null}
 
       <main>
         <Routes>
@@ -44,9 +52,9 @@ const App = () => {
         </Routes>
       </main>
 
-      {location.pathname === '/aloe/admin' ? null : (
+      {location.pathname !== '/admin' && defaultPageData !== undefined ? (
         <Footer pageData={defaultPageData.footer} />
-      )}
+      ) : null}
     </>
   );
 };

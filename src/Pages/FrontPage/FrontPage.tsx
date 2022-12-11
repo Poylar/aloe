@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import '../../Assets/styles/reseter.scss';
 import Bridge from '../../Layout/Blocks/Bridge';
 import Description from '../../Layout/Blocks/Description';
@@ -6,23 +8,33 @@ import Mission from '../../Layout/Blocks/Mission';
 import Research from '../../Layout/Blocks/Research';
 import Sheet from '../../Layout/Blocks/Sheet';
 import Team from '../../Layout/Blocks/Team';
-import { FrontPageData } from './FrontPage.data';
+import getFrontPageData from './FrontPage.data';
 import './FrontPage.module.scss';
+import { IFrontPageData } from './FrontPage.types';
 
 const FrontPage = () => {
-  const page = FrontPageData;
+  const [page, setPage] = useState<IFrontPageData>();
 
-  return (
-    <>
-      <Description pageData={page.description} />
-      <Mission pageData={page.mission} />
-      <Bridge pageData={page.bridge} />
-      <MetaInterface />
-      <Sheet pageData={page.sheets} />
-      <Research pageData={page.research} />
-      <Team pageData={page.team} />
-    </>
-  );
+  useEffect(() => {
+    getFrontPageData().then((response: IFrontPageData) => {
+      setPage(response);
+    });
+  }, []);
+
+  if (page !== undefined) {
+    return (
+      <>
+        <Description pageData={page.description} />
+        <Mission pageData={page.mission} />
+        <Bridge pageData={page.bridge} />
+        <MetaInterface />
+        <Sheet pageData={page.sheets} />
+        <Research pageData={page.research} />
+        <Team pageData={page.team} />
+      </>
+    );
+  }
+  return null;
 };
 
 export default FrontPage;

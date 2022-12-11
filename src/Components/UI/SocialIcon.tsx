@@ -1,16 +1,12 @@
 import React, { FC } from 'react';
 
+import { IIconItem } from '../../App.types';
 import discord from '../../Assets/icons/discord.svg';
 import twitter from '../../Assets/icons/twitter.svg';
 import whiteTwitter from '../../Assets/icons/whiteTwitter.svg';
 import styles from './SocialIcon.module.scss';
 
-interface ISocial {
-  type: string;
-  link: string;
-}
-
-const SocialIcon: FC<{ social: ISocial }> = ({ social }) => {
+const SocialIcon: FC<{ social: IIconItem }> = ({ social }) => {
   let image: string;
 
   switch (social.type) {
@@ -39,7 +35,5 @@ const SocialIcon: FC<{ social: ISocial }> = ({ social }) => {
     </a>
   );
 };
-
-export type { ISocial };
 
 export default SocialIcon;

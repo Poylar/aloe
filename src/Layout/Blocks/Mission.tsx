@@ -3,28 +3,17 @@ import React, { FC } from 'react';
 import bitcoin from '../../Assets/icons/bitcoin.svg';
 import etherium from '../../Assets/icons/etherium.svg';
 import Button from '../../Components/UI/ButtonUI';
+import { IMissionPageData } from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Mission.module.scss';
-
-interface MissionProps {
-  pageData: {
-    id: string;
-    title: string;
-    description: string;
-    anoncer: string;
-    descriptionButton: {
-      archon: string;
-      name: string;
-      element: string;
-    };
-  };
-}
 
 const cryptoIcons = {
   btc: bitcoin,
   eth: etherium,
 };
 
-const Mission: FC<MissionProps> = ({ pageData }) => (
+const Mission: FC<{
+  pageData: IMissionPageData;
+}> = ({ pageData }) => (
   <section className={styles.section} id={pageData.id}>
     <div className={styles.section__wrapper}>
       <h2 className={styles.section__title}>
@@ -47,7 +36,7 @@ const Mission: FC<MissionProps> = ({ pageData }) => (
       <div className={styles.section__description}>
         <p className={styles.description}>{pageData.description}</p>
         <Button
-          text={pageData.descriptionButton.name}
+          text={pageData.descriptionButton.text}
           element={pageData.descriptionButton.element}
           linkTo={pageData.descriptionButton.element}
         />

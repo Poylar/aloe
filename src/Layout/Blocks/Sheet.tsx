@@ -1,36 +1,17 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 
 import Button from '../../Components/UI/ButtonUI';
 import SwiperSlider from '../../Components/UI/SwiperSlider';
-import useMedia from '../../Hooks/useMedia';
+import {
+  ISheetCard,
+  ISheetPageData,
+} from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Sheet.module.scss';
 
-export interface ICard {
-  tags: string[];
-  title: string;
-  description: string;
-  cardButton: {
-    element: string;
-    archon: string;
-    name: string;
-  };
-}
-
-interface ISheetsProps {
-  pageData: {
-    id: string;
-    title: string;
-    description: string;
-    cards: ICard[];
-  };
-}
-
-interface ISheetCardProps {
-  Card: ICard;
+const SheetCard: FC<{
+  Card: ISheetCard;
   index: number;
-}
-
-const SheetCard: FC<ISheetCardProps> = ({ Card, index }) => {
+}> = ({ Card, index }) => {
   const cardI = [
     index === 1 ? ` ${styles.green}` : '',
     index === 2 ? ` ${styles.red}` : '',
@@ -60,7 +41,9 @@ const SheetCard: FC<ISheetCardProps> = ({ Card, index }) => {
   );
 };
 
-const Sheet: FC<ISheetsProps> = ({ pageData }) => {
+const Sheet: FC<{
+  pageData: ISheetPageData;
+}> = ({ pageData }) => {
   const cards = pageData.cards.map((card, index) => (
     <SheetCard Card={card} index={index} />
   ));

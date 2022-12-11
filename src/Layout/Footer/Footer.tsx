@@ -1,46 +1,14 @@
 import React, { FC } from 'react';
 
+import { IFooterPageData } from '../defaultPageData.types';
 import styles from './Footer.module.scss';
 import FooterBottom from './FooterBottom';
 import FooterTerms from './FooterTerms';
 import FooterTop from './FooterTop';
 
-interface IFooterLink {
-  name: string;
-  archon: string;
-}
-
-interface IFooterProps {
-  pageData: {
-    id: string;
-    title: string;
-    description: string;
-
-    form: {
-      placeholder: string;
-      buttonText: string;
-    };
-    logoButton: {
-      element: string;
-      text: string;
-      linkTo: string;
-    };
-    links: IFooterLink[];
-    copyright: {
-      text: string;
-      icon: {
-        type: string;
-        link: string;
-      };
-    };
-    termLink: {
-      name: string;
-      link: string;
-    };
-  };
-}
-
-const Footer: FC<IFooterProps> = ({ pageData }) => (
+const Footer: FC<{
+  pageData: IFooterPageData;
+}> = ({ pageData }) => (
   <footer className={styles.footer} id={pageData.id}>
     <div className={styles.footer__wrapper}>
       <FooterTop

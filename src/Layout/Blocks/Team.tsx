@@ -1,22 +1,12 @@
 import React, { FC } from 'react';
 
-import SocialIcon, { ISocial } from '../../Components/UI/SocialIcon';
+import SocialIcon from '../../Components/UI/SocialIcon';
 import SwiperSlider from '../../Components/UI/SwiperSlider';
+import {
+  ITeamCard,
+  ITeamPageData,
+} from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Team.module.scss';
-
-interface ITeamCard {
-  image: string;
-  name: string;
-  desc: string;
-  socials: ISocial[];
-}
-
-interface ITeamProps {
-  id: string;
-  title: string;
-  description: string;
-  cards: ITeamCard[];
-}
 
 const TeamCard: FC<{ card: ITeamCard }> = ({ card }) => {
   const { image, name, desc, socials } = card;
@@ -38,7 +28,7 @@ const TeamCard: FC<{ card: ITeamCard }> = ({ card }) => {
   );
 };
 
-const Team: FC<{ pageData: ITeamProps }> = ({ pageData }) => {
+const Team: FC<{ pageData: ITeamPageData }> = ({ pageData }) => {
   const cards = pageData.cards.map((card) => <TeamCard card={card} />);
 
   return (

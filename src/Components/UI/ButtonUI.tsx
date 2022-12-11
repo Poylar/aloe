@@ -65,13 +65,11 @@ const buttons = {
   hide: ButtonUIHide,
 };
 
-interface IButtonProps {
+const Button: FC<{
   text: string;
   linkTo?: string;
   element?: string;
-}
-
-const Button: FC<IButtonProps> = ({ text, linkTo, element }) => {
+}> = ({ text, linkTo, element }) => {
   const str = element !== undefined ? element : 'green';
   // @ts-ignore
   const ButtonElement = buttons[str];

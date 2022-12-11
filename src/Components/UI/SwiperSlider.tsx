@@ -4,11 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import useMedia from '../../Hooks/useMedia';
 
-interface SwiperProps {
+const SwiperSlider: FC<{
   cards: JSX.Element[];
-}
-
-const SwiperSlider: FC<SwiperProps> = ({ cards }) => {
+}> = ({ cards }) => {
   const width = useMedia();
 
   const sliderPerView = width > 670;

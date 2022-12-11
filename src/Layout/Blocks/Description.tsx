@@ -1,16 +1,12 @@
 import React, { FunctionComponent } from 'react';
 
 import descriptionImage from '../../Assets/images/description.jpg';
+import { IDescriptionPageData } from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Description.module.scss';
 
-interface Props {
-  pageData: {
-    title: string;
-    description: string;
-  };
-}
-
-const Description: FunctionComponent<Props> = ({ pageData }) => (
+const Description: FunctionComponent<{
+  pageData: IDescriptionPageData;
+}> = ({ pageData }) => (
   <section
     style={{ backgroundImage: `url(${descriptionImage})` }}
     className={styles.section}
