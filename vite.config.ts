@@ -7,7 +7,7 @@ export default defineConfig(({command, mode}) => {
   process.env.NODE_GP = process.env.NODE_GP !== undefined ? process.env.NODE_GP : 'false';
 
   // @ts-ignore
-  const base = process.env.NODE_GP == 1 ? '/aloe/' : ''
+  const base = process.env.NODE_GP == 1 ? '/Aloe/' : ''
 
   return {
     base: base,
