@@ -20,7 +20,6 @@ const AdminPage = () => {
   }, []);
 
   const loginHandler = () => {
-    // @ts-ignore
     if (pass === import.meta.env.VITE_ADMIN_PASS) {
       setIsLogin(true);
       localStorage.setItem('ALOE_IS_LOGIN', 'true');

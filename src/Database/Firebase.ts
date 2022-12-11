@@ -7,17 +7,11 @@ import { collection, getDocs, getFirestore, setDoc } from 'firebase/firestore';
 import { IEmailItem } from '../App.types';
 
 const firebaseConfig = {
-  // @ts-ignore
   apiKey: import.meta.env.VITE_FB_API_KEY,
-  // @ts-ignore
   authDomain: import.meta.env.VITE_FB_AUTH_DOMAIN,
-  // @ts-ignore
   projectId: import.meta.env.VITE_FB_PROJECT_ID,
-  // @ts-ignore
   storageBucket: import.meta.env.VITE_FB_STIRAGE_BUCKET,
-  // @ts-ignore
   messagingSenderId: import.meta.env.VITE_FB_MESSAGING_SENDER_ID,
-  // @ts-ignore
   appId: import.meta.env.VITE_FB_APP_ID,
 };
 
