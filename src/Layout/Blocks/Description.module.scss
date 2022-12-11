@@ -6,34 +6,66 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-  padding: 570px 0 var(--gap-y) 0;
+  background: var(--descriptionBg);
+  border-radius: 0 0 40px 40px;
+  overflow: hidden;
+  padding: 177px 0 170px 0;
+  position: relative;
+  z-index: 1;
   @include media(l){
-    padding-top: 290px;
+    padding: 100px 0 60px 0;
   }
   &__wrapper{
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: column;
+    z-index: 10;
+    position: relative;
     @extend %container;
     @include media(l){
       flex-direction: column;
     }
     .title{
-      color: var(--prim);
-      @extend %sui_reg_80_84;
-      max-width: 670px;
-      @include media(l){
+      color: var(--main);
+      @extend %sui_reg_100_105;
+      max-width: 600px;
+      margin-bottom: 40px;
+      @include media(xl){
         margin-bottom: 20px;
+        max-width: 100%;
       }
     }
     .desc{
-      color: var(--prim);
+      color: var(--main);
       @extend %sui_reg_20_30;
-      max-width: 400px;
+      max-width: 520px;
       text-indent: var(--textIndend);
+      @include media(xl){
+        max-width: 100%;
+      }
     }
+  }
+  .circleImage{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    user-select: none;
+  }
+  .logotype{
+    margin-left: 100px;
+    background: var(--prim);
+    border-radius: 160px;
+    width: 305px;
+    height: 305px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    bottom: 318px;
+    right: 388px;
+    user-select: none;
   }
 }

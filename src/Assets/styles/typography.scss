@@ -37,17 +37,6 @@
     line-height: 24px;
     letter-spacing: -0.005em;
   }
-  &_80_84 {
-    @extend %sui_reg;
-    font-size: 80px;
-    line-height: 84px;
-    letter-spacing: -0.03em;
-    @include media(l){
-      font-size: 48px;
-      line-height: 50px;
-      letter-spacing: -0.02em;
-    }
-  }
   &_20_30{
     @extend %sui_reg;
     font-size: 20px;
@@ -64,6 +53,28 @@
     font-size: 24px;
     line-height: 32px;
     letter-spacing: -0.02em;
+  }
+  &_80_84 {
+    @extend %sui_reg;
+    font-size: 80px;
+    line-height: 84px;
+    letter-spacing: -0.03em;
+    @include media(l){
+      font-size: 48px;
+      line-height: 50px;
+      letter-spacing: -0.02em;
+    }
+  }
+  &_100_105 {
+    @extend %sui_reg;
+    font-size: 100px;
+    line-height: 105px;
+    letter-spacing: -0.03em;
+    @include media(l){
+      font-size: 48px;
+      line-height: 50px;
+      letter-spacing: -0.02em;
+    }
   }
 }
 
