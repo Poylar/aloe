@@ -13,7 +13,16 @@
   position: relative;
   z-index: 1;
   @include media(l){
-    padding: 100px 0 60px 0;
+    padding: 290px 0 40px 0;
+  }
+  .descriptionMobile{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
   }
   &__wrapper{
     display: flex;
@@ -34,6 +43,7 @@
       @include media(xl){
         margin-bottom: 20px;
         max-width: 100%;
+        color: var(--prim);
       }
     }
     .desc{
@@ -43,6 +53,7 @@
       text-indent: var(--textIndend);
       @include media(xl){
         max-width: 100%;
+        color: var(--prim);
       }
     }
   }

@@ -14,11 +14,18 @@
     margin-bottom: var(--gap-y);
     display: flex;
     justify-content: space-between;
+    @include media(l){
+      flex-direction: column;
+    }
     .title{
       color: var(--main);
       @extend %sui_light_80_84;
       max-width: 680px;
       margin-right: 20px;
+      @include media(l){
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
     }
     .description{
       color: var(--main);

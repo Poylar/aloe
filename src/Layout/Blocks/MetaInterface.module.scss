@@ -7,6 +7,8 @@
   font-size: 0;
   overflow: hidden;
   .iframe{
+    border-radius: var(--sectionBR);
+    overflow: hidden;
     height: 950px;
     width: 100%;
     @include media(m){

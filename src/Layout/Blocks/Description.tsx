@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import logo from '../../Assets/icons/descriptionLogo.svg';
+import descriptionMobile from '../../Assets/images/description.jpg';
 import descriptionImage from '../../Assets/images/descriptionCircle.png';
 import useMedia from '../../Hooks/useMedia';
 import { IDescriptionPageData } from '../../Pages/FrontPage/FrontPage.types';
@@ -26,7 +27,13 @@ const Description: FunctionComponent<{
 
           <img className={styles.circleImage} src={descriptionImage} alt='' />
         </>
-      ) : null}
+      ) : (
+        <img
+          src={descriptionMobile}
+          alt=''
+          className={styles.descriptionMobile}
+        />
+      )}
     </section>
   );
 };

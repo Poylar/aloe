@@ -7,11 +7,19 @@
   padding: var(--gap-y) 0;
   &__wrapper{
     @extend %container;
+    padding: {
+      right: 0;
+      left: 0;
+    }
   }
   &__text{
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--gap-y);
+    padding: {
+      right: var(--gap);
+      left: var(--gap);
+    }
     @include media(l){
       flex-direction: column;
       justify-content: flex-start;
@@ -40,9 +48,7 @@
 
 .card{
   flex: 1;
-  &:not(:last-child){
-    margin-right: 20px;
-  }
+  padding: 0 20px;
   .image{
     background: var(--imageBg);
     border-radius: 24px;

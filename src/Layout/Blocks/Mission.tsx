@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import bitcoin from '../../Assets/icons/bitcoin.svg';
-import etherium from '../../Assets/icons/etherium.svg';
+import bitcoin from '../../Assets/images/bitcoin.png';
+import etherium from '../../Assets/images/etherium.png';
 import Button from '../../Components/UI/ButtonUI';
 import { IMissionPageData } from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Mission.module.scss';

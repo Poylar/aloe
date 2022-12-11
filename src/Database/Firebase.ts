@@ -46,3 +46,5 @@ export default {
   getEmails,
   firebaseDataBase,
 };
+
+export { firebaseConfig };

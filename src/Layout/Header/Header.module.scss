@@ -12,6 +12,11 @@
   //}
   .logo {
     margin-right: 60px;
+    line-height: 0;
+    font-size: 0;
+    @include media(l){
+      margin-right: 10px;
+    }
   }
   &__wrapper {
     @extend %container;
@@ -92,7 +97,7 @@
       position: absolute;
       background: var(--prim);
       border-radius: 12px;
-      top: 50px;
+      top: 55px;
       padding: 0 16px;
       max-height: 0;
       overflow:hidden;

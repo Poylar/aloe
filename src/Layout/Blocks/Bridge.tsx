@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import iconsBridge from '../../Assets/icons/iconsBridge.svg';
+import iconsBridge from '../../Assets/images/logotypes.png';
 import { IBridgePageData } from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Bridge.module.scss';
 
