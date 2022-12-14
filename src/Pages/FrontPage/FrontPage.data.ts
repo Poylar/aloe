@@ -4,9 +4,16 @@ import sites from '../../Database/Firebase';
 
 const getFrontPageData: () => DocumentData = async () => {
   const data = await sites
-    .getPageData(sites.firebaseDataBase)
-    .then((response) => response[0]);
-  return data.FrontPageData;
+    .getFrontPageData(sites.firebaseDataBase)
+    .then((response) => {
+      let pageData = {};
+      response.forEach((item) => {
+        pageData = { ...pageData, ...item };
+      });
+
+      return pageData;
+    });
+  return data;
 };
 
 export default getFrontPageData;

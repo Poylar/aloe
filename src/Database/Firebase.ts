@@ -24,6 +24,14 @@ const getPageData = async (db: Firestore) => {
   return snapshot.docs.map((snapshotItem) => snapshotItem.data());
 };
 
+const getFrontPageData = async (db: Firestore) => {
+  const snapshot = await getDocs(collection(db, 'FrontPage'));
+
+  return snapshot.docs.map((snapshotItem) => ({
+    [snapshotItem.id]: snapshotItem.data(),
+  }));
+};
+
 const includeNewEmail = async (db: Firestore, data: IEmailItem) => {
   const ref = doc(collection(db, 'Emails'), 'JVsorqdq4ibdJB1BuYWz');
   await setDoc(ref, { emails: arrayUnion(data) }, { merge: true });
@@ -44,7 +52,10 @@ export default {
   includeNewEmail,
   removeCurrentEmail,
   getEmails,
+  getFrontPageData,
   firebaseDataBase,
+  firebaseConfig,
+  app,
 };
 
 export { firebaseConfig };

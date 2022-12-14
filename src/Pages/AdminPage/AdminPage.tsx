@@ -1,88 +1,127 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import {
+  Admin,
+  ArrayField,
+  Create,
+  Datagrid,
+  DeleteButton,
+  Edit,
+  EditButton,
+  List,
+  Resource,
+  Show,
+  SimpleForm,
+  TextField,
+  TextInput,
+} from 'react-admin';
+import { FirebaseDataProvider } from 'react-admin-firebase';
 
-import { IEmailItem } from '../../App.types';
-import cites from '../../Database/Firebase';
-import styles from './AdminPage.module.scss';
+import firebase from '../../Database/Firebase';
 
-const AdminPage = () => {
-  const initialLoginState = localStorage.getItem('ALOE_IS_LOGIN');
+const dataProvider = FirebaseDataProvider(firebase.firebaseConfig, {});
 
-  const [pass, setPass] = useState<string>('');
-  const [isLogin, setIsLogin] = useState<boolean>(initialLoginState === 'true');
-  const [emails, setEmails] = useState<IEmailItem[]>([]);
+const FrontpageList = (props: any) => (
+  <List {...props}>
+    <Datagrid>
+      <TextField source='id' />
+      <TextField source='title' />
+      <TextField source='description' />
+      <ArrayField source='cards'>
+        <Datagrid>
+          <TextField source='tags' />
+          <TextField source='title' />
+          <TextField source='description' />
+          <TextField source='cardButton.element' />
+          <TextField source='cardButton.name' />
+          <TextField source='cardButton.archon' />
+          <EditButton />
+          <DeleteButton />
+        </Datagrid>
+      </ArrayField>
+      <EditButton />
+      <DeleteButton />
+    </Datagrid>
+  </List>
+);
 
-  document.querySelector('body')?.classList.add(styles.admin);
+const FrontpageShow = (props: any) => (
+  <Show {...props}>
+    <Datagrid>
+      <TextField source='id' />
+      <TextField source='title' />
+      <TextField source='description' />
+      <ArrayField source='cards'>
+        <Datagrid>
+          <TextField source='tags' />
+          <TextField source='title' />
+          <TextField source='description' />
+          <TextField source='cardButton.element' />
+          <TextField source='cardButton.name' />
+          <TextField source='cardButton.archon' />
+          <EditButton />
+          <DeleteButton />
+        </Datagrid>
+      </ArrayField>
+      <EditButton />
+      <DeleteButton />
+    </Datagrid>
+  </Show>
+);
 
-  useEffect(() => {
-    cites.getEmails(cites.firebaseDataBase).then((response) => {
-      setEmails(response[0].emails);
-    });
-  }, []);
+const FrontpageCreate = (props: any) => (
+  <Create {...props}>
+    <SimpleForm>
+      <TextInput source='id' multiline />
+      <TextInput source='title' multiline />
+      <TextInput source='description' multiline />
+      <ArrayField source='cards'>
+        <Datagrid>
+          <TextInput source='tags' multiline />
+          <TextInput source='title' multiline />
+          <TextInput source='description' multiline />
+          <TextInput source='cardButton.element' multiline />
+          <TextInput source='cardButton.name' multiline />
+          <TextInput source='cardButton.archon' multiline />
+          <EditButton />
+          <DeleteButton />
+        </Datagrid>
+      </ArrayField>
+    </SimpleForm>
+  </Create>
+);
 
-  const loginHandler = () => {
-    if (pass === import.meta.env.VITE_ADMIN_PASS) {
-      setIsLogin(true);
-      localStorage.setItem('ALOE_IS_LOGIN', 'true');
-    }
-  };
+const FrontpageEdit = (props: any) => (
+  <Edit {...props}>
+    <SimpleForm>
+      <TextInput source='id' multiline />
+      <TextInput source='title' multiline />
+      <TextInput source='description' multiline />
+      <ArrayField source='cards'>
+        <Datagrid>
+          <TextInput source='tags' multiline />
+          <TextInput source='title' multiline />
+          <TextInput source='description' multiline />
+          <TextInput source='cardButton.element' multiline />
+          <TextInput source='cardButton.name' multiline />
+          <TextInput source='cardButton.archon' multiline />
+          <EditButton />
+          <DeleteButton />
+        </Datagrid>
+      </ArrayField>
+    </SimpleForm>
+  </Edit>
+);
 
-  const unLoginHandler = () => {
-    setIsLogin(false);
-    localStorage.removeItem('ALOE_IS_LOGIN');
-  };
-
-  const deleteButtonHandler = (current: IEmailItem) => {
-    cites.removeCurrentEmail(cites.firebaseDataBase, current).then(() => {
-      setEmails(
-        emails.filter(
-          (item) => item.email === current.email && item.time === current.time
-        )
-      );
-    });
-  };
-
-  if (isLogin) {
-    return (
-      <div className={styles.adminka}>
-        <button style={{ marginBottom: '20px' }} onClick={unLoginHandler}>
-          sing out
-        </button>
-        {emails.length > 0 ? (
-          emails.map((mail, index) => {
-            const date = new Date(mail.time);
-            const time = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}`;
-
-            return (
-              <div key={index} className={styles.emailString}>
-                <p className={styles.email}>{mail.email}</p>
-                <p className={styles.time}>{time}</p>
-                <button
-                  onClick={() =>
-                    deleteButtonHandler({ email: mail.email, time: mail.time })
-                  }
-                >
-                  delete
-                </button>
-              </div>
-            );
-          })
-        ) : (
-          <p>loading or emails list is clear</p>
-        )}
-      </div>
-    );
-  }
-
-  return (
-    <div className={styles.adminka}>
-      <input
-        type='text'
-        value={pass}
-        onChange={(e) => setPass(e.target.value)}
-      />
-      <button onClick={loginHandler}>login</button>
-    </div>
-  );
-};
+const AdminPage = () => (
+  <Admin title='admin' dataProvider={dataProvider}>
+    <Resource
+      name='FrontPage'
+      list={FrontpageList}
+      show={FrontpageShow}
+      create={FrontpageCreate}
+      edit={FrontpageEdit}
+    />
+  </Admin>
+);
 
 export default AdminPage;

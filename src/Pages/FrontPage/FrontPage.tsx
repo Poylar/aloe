@@ -16,6 +16,8 @@ const FrontPage = () => {
   const [page, setPage] = useState<IFrontPageData>();
 
   useEffect(() => {
+    document.querySelector('body')?.classList.add('indexPage');
+
     getFrontPageData().then((response: IFrontPageData) => {
       setPage(response);
     });
