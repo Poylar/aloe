@@ -2,22 +2,23 @@
 @import '../../assets/styles/typography';
 @import '../../assets/styles/media';
 
-.section{
+.section {
   padding: var(--gap-y) 0 320px 0;
   background-position: center center;
   background-size: cover;
-  @include media(l){
+  margin-bottom: 5px;
+  @include media(l) {
     padding-bottom: 200px;
   }
-  &__wrapper{
+  &__wrapper {
     @extend %container;
-    .title{
+    .title {
       @extend %sui_light_80_84;
       color: var(--prim);
       margin-bottom: 40px;
       max-width: 680px;
     }
-    .description{
+    .description {
       @extend %sui_reg_20_30;
       color: var(--prim);
       margin-bottom: var(--gap-y);

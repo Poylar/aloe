@@ -1,4 +1,3 @@
-import AdminPage from './AdminPage/AdminPage';
 import EmailsPage from './EmailsPage/EmailsPage';
 import FrontPage from './FrontPage/FrontPage';
 
@@ -12,10 +11,6 @@ export const PageRoutes = [
   {
     element: EmailsPage,
     path: `${baseUrl}emails`,
-  },
-  {
-    element: AdminPage,
-    path: `${baseUrl}FrontPage`,
   },
 ];
 

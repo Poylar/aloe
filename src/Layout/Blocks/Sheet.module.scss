@@ -2,45 +2,43 @@
 @import '../../assets/styles/typography';
 @import '../../assets/styles/media';
 
-
-.section{
+.section {
   background: var(--primBg);
   border-radius: var(--sectionBR);
   padding: var(--gap-y) 0;
-  &__wrapper{
+  margin-bottom: 5px;
+  &__wrapper {
     @extend %container;
   }
-  .top{
+  .top {
     margin-bottom: var(--gap-y);
     display: flex;
     justify-content: space-between;
-    @include media(l){
+    @include media(l) {
       flex-direction: column;
     }
-    .title{
+    .title {
       color: var(--main);
       @extend %sui_light_80_84;
       max-width: 680px;
       margin-right: 20px;
-      @include media(l){
+      @include media(l) {
         margin-right: 0;
         margin-bottom: 20px;
       }
     }
-    .description{
+    .description {
       color: var(--main);
       @extend %sui_reg_20_30;
       text-indent: var(--textIndend);
       max-width: 400px;
     }
   }
-  .cards{
-
+  .cards {
   }
 }
 
-
-.card{
+.card {
   background: var(--prim);
   padding: 20px 20px 30px 20px;
   min-height: 400px;
@@ -54,37 +52,37 @@
   position: relative;
   overflow: hidden;
 
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-right: 20px;
   }
-  &__top{
+  &__top {
     display: flex;
     align-items: center;
-    %tag{
+    %tag {
       margin-right: 4px;
       border-radius: 12px;
       color: var(--prim);
       padding: 4px 12px;
     }
-    .new{
+    .new {
       @extend %tag;
       background: var(--second);
       border-radius: 12px;
     }
-    .hot{
+    .hot {
       @extend %tag;
       background: var(--wrong);
       border-radius: 12px;
     }
   }
-  &__title{
+  &__title {
     @extend %sui_reg_24_32;
     color: var(--main);
     margin-bottom: 12px;
     position: relative;
     z-index: 2;
   }
-  &__description{
+  &__description {
     @extend %sui_reg_16_24;
     color: var(--letter);
     margin-bottom: 24px;
@@ -92,8 +90,8 @@
     z-index: 2;
   }
 
-  &:before{
-    content: "";
+  &:before {
+    content: '';
     display: block;
     width: 360px;
     height: 360px;
@@ -105,11 +103,10 @@
     background: var(--third);
     z-index: 1;
   }
-  &.green:before{
+  &.green:before {
     background: var(--second);
   }
-  &.red:before{
+  &.red:before {
     background: var(--wrong);
   }
-
 }

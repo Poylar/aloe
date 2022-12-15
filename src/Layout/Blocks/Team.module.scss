@@ -1,18 +1,19 @@
 @import '../../assets/styles/global';
 @import '../../assets/styles/typography';
 
-.section{
+.section {
   background: var(--prim);
   border-radius: var(--sectionBR);
   padding: var(--gap-y) 0;
-  &__wrapper{
+  margin-bottom: 5px;
+  &__wrapper {
     @extend %container;
     padding: {
       right: 0;
       left: 0;
     }
   }
-  &__text{
+  &__text {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--gap-y);
@@ -20,51 +21,51 @@
       right: var(--gap);
       left: var(--gap);
     }
-    @include media(l){
+    @include media(l) {
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
     }
-    .title{
+    .title {
       margin-right: 40px;
       @extend %sui_light_80_84;
-      @include media(l){
+      @include media(l) {
         margin-bottom: 20px;
         margin-right: 0;
       }
     }
-    .description{
+    .description {
       max-width: 400px;
       @extend %sui_reg_20_30;
       text-indent: var(--textIndend);
     }
   }
-  &__cards{
+  &__cards {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
   }
 }
 
-.card{
+.card {
   flex: 1;
   padding: 0 20px;
-  .image{
+  .image {
     background: var(--imageBg);
     border-radius: 24px;
     margin-bottom: 30px;
     height: 500px;
     display: block;
-    @include media(l){
+    @include media(l) {
       height: 320px;
       max-width: 320px;
     }
   }
-  .name{
+  .name {
     @extend %sui_reg_24_32;
     margin-bottom: 12px;
   }
-  .desc{
+  .desc {
     color: var(--letter);
     margin-bottom: 20px;
   }

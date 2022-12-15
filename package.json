@@ -13,13 +13,19 @@
     "deployFB": "npm run build && firebase deploy"
   },
   "dependencies": {
+    "@camberi/firecms": "^2.0.0-alpha.49",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@firebase/firestore": "^3.8.0",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "^5.0.0-alpha.112",
+    "@mui/material": "^5.11.0",
+    "@mui/x-date-pickers": "^5.0.0-beta.1",
     "axios": "^0.27.2",
     "firebase": "^9.15.0",
     "react": "^18.0.0",
-    "react-admin": "^4.6.1",
-    "react-admin-firebase": "^4.0.9",
     "react-dom": "^18.0.0",
+    "react-router": "^6.4.5",
     "react-router-dom": "^6.3.0",
     "swiper": "^8.2.6"
   },

@@ -1,127 +1,61 @@
-import React from 'react';
-import {
-  Admin,
-  ArrayField,
-  Create,
-  Datagrid,
-  DeleteButton,
-  Edit,
-  EditButton,
-  List,
-  Resource,
-  Show,
-  SimpleForm,
-  TextField,
-  TextInput,
-} from 'react-admin';
-import { FirebaseDataProvider } from 'react-admin-firebase';
+import React, { useState } from 'react';
 
-import firebase from '../../Database/Firebase';
+import AdminApp from './AdminApp';
 
-const dataProvider = FirebaseDataProvider(firebase.firebaseConfig, {});
+// import firebase from '../../Database/Firebase';
 
-const FrontpageList = (props: any) => (
-  <List {...props}>
-    <Datagrid>
-      <TextField source='id' />
-      <TextField source='title' />
-      <TextField source='description' />
-      <ArrayField source='cards'>
-        <Datagrid>
-          <TextField source='tags' />
-          <TextField source='title' />
-          <TextField source='description' />
-          <TextField source='cardButton.element' />
-          <TextField source='cardButton.name' />
-          <TextField source='cardButton.archon' />
-          <EditButton />
-          <DeleteButton />
-        </Datagrid>
-      </ArrayField>
-      <EditButton />
-      <DeleteButton />
-    </Datagrid>
-  </List>
-);
+const AdminPage = () => {
+  const initialLoginState = localStorage.getItem('ALOE_IS_LOGIN');
 
-const FrontpageShow = (props: any) => (
-  <Show {...props}>
-    <Datagrid>
-      <TextField source='id' />
-      <TextField source='title' />
-      <TextField source='description' />
-      <ArrayField source='cards'>
-        <Datagrid>
-          <TextField source='tags' />
-          <TextField source='title' />
-          <TextField source='description' />
-          <TextField source='cardButton.element' />
-          <TextField source='cardButton.name' />
-          <TextField source='cardButton.archon' />
-          <EditButton />
-          <DeleteButton />
-        </Datagrid>
-      </ArrayField>
-      <EditButton />
-      <DeleteButton />
-    </Datagrid>
-  </Show>
-);
+  const [pass, setPass] = useState<string>('');
+  const [isLogin, setIsLogin] = useState<boolean>(initialLoginState === 'true');
 
-const FrontpageCreate = (props: any) => (
-  <Create {...props}>
-    <SimpleForm>
-      <TextInput source='id' multiline />
-      <TextInput source='title' multiline />
-      <TextInput source='description' multiline />
-      <ArrayField source='cards'>
-        <Datagrid>
-          <TextInput source='tags' multiline />
-          <TextInput source='title' multiline />
-          <TextInput source='description' multiline />
-          <TextInput source='cardButton.element' multiline />
-          <TextInput source='cardButton.name' multiline />
-          <TextInput source='cardButton.archon' multiline />
-          <EditButton />
-          <DeleteButton />
-        </Datagrid>
-      </ArrayField>
-    </SimpleForm>
-  </Create>
-);
-
-const FrontpageEdit = (props: any) => (
-  <Edit {...props}>
-    <SimpleForm>
-      <TextInput source='id' multiline />
-      <TextInput source='title' multiline />
-      <TextInput source='description' multiline />
-      <ArrayField source='cards'>
-        <Datagrid>
-          <TextInput source='tags' multiline />
-          <TextInput source='title' multiline />
-          <TextInput source='description' multiline />
-          <TextInput source='cardButton.element' multiline />
-          <TextInput source='cardButton.name' multiline />
-          <TextInput source='cardButton.archon' multiline />
-          <EditButton />
-          <DeleteButton />
-        </Datagrid>
-      </ArrayField>
-    </SimpleForm>
-  </Edit>
-);
-
-const AdminPage = () => (
-  <Admin title='admin' dataProvider={dataProvider}>
-    <Resource
-      name='FrontPage'
-      list={FrontpageList}
-      show={FrontpageShow}
-      create={FrontpageCreate}
-      edit={FrontpageEdit}
-    />
-  </Admin>
-);
+  if (!isLogin) {
+    return (
+      <form>
+        <input
+          type='text'
+          placeholder='Пароль'
+          value={pass}
+          onChange={(e) => {
+            setPass(e.target.value);
+          }}
+        />
+        <button
+          style={{ cursor: 'pointer' }}
+          onClick={(e) => {
+            e.preventDefault();
+            if (pass === import.meta.env.VITE_ADMIN_PASS) {
+              setIsLogin(true);
+              localStorage.setItem('ALOE_IS_LOGIN', 'true');
+            }
+          }}
+        >
+          login
+        </button>
+      </form>
+    );
+  }
+  return (
+    <>
+      <button
+        style={{
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          zIndex: 10000,
+          background: '#fff',
+        }}
+        onClick={() => {
+          setIsLogin(false);
+          localStorage.removeItem('ALOE_IS_LOGIN');
+        }}
+      >
+        login out
+      </button>
+      <AdminApp />
+    </>
+  );
+};
 
 export default AdminPage;

@@ -3,9 +3,13 @@ import ReactDom from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
+import AdminPage from './Pages/AdminPage/AdminPage';
 
 ReactDom.createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    <AdminPage />
+  </>
 );
