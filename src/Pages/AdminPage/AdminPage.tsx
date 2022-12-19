@@ -8,7 +8,7 @@ const AdminPage = () => {
   const [pass, setPass] = useState<string>('');
   const [isLogin, setIsLogin] = useState<boolean>(initialLoginState === 'true');
 
-  if (!isLogin) {
+  if (!isLogin && document.location.pathname !== '') {
     return (
       <form>
         <input
@@ -34,10 +34,9 @@ const AdminPage = () => {
       </form>
     );
   }
-
   return (
     <>
-      {document.location.pathname === '' ? (
+      {document.location.pathname !== '' ? (
         <button
           style={{
             position: 'fixed',
