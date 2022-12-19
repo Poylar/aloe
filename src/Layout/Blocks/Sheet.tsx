@@ -18,24 +18,26 @@ const SheetCard: FC<{
   ];
 
   return (
-    <div className={`${styles.card} ${cardI.join(' ')}`}>
-      <div className={styles.card__top}>
-        {Card.tags.map((tag, tagI) => (
-          <p key={tagI} className={tag === 'New' ? styles.new : styles.hot}>
-            {tag}
-          </p>
-        ))}
-      </div>
+    <div className={`${styles.card}`}>
+      <div className={`${styles.card__wrapper} ${cardI.join(' ')}`}>
+        <div className={styles.card__top}>
+          {Card.tags.map((tag, tagI) => (
+            <p key={tagI} className={tag === 'New' ? styles.new : styles.hot}>
+              {tag}
+            </p>
+          ))}
+        </div>
 
-      <div>
-        <h3 className={styles.card__title}>{Card.title}</h3>
-        <p className={styles.card__description}>{Card.description}</p>
+        <div>
+          <h3 className={styles.card__title}>{Card.title}</h3>
+          <p className={styles.card__description}>{Card.description}</p>
 
-        <Button
-          text={Card.cardButton.name}
-          linkTo={Card.cardButton.archon}
-          element={Card.cardButton.element}
-        />
+          <Button
+            text={Card.cardButton.name}
+            linkTo={Card.cardButton.archon}
+            element={Card.cardButton.element}
+          />
+        </div>
       </div>
     </div>
   );

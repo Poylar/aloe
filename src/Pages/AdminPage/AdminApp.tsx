@@ -5,6 +5,7 @@ import {
 } from '@camberi/firecms';
 import React from 'react';
 
+import { IEmailItem } from '../../App.types';
 import firebase from '../../Database/Firebase';
 import { ISheetPageData } from '../FrontPage/FrontPage.types';
 
@@ -71,12 +72,36 @@ const FrontPageCollection = buildCollection<ISheetPageData>({
   },
 });
 
+const EmailsCollection = buildCollection<{ emails: Array<IEmailItem> }>({
+  name: 'Emails',
+  singularName: 'Emails',
+  path: 'Emails',
+  properties: {
+    emails: {
+      name: 'emails',
+      dataType: 'array',
+      of: {
+        dataType: 'map',
+        properties: {
+          email: {
+            name: 'email',
+            dataType: 'string',
+          },
+          time: {
+            name: 'time',
+            dataType: 'string',
+          },
+        },
+      },
+    },
+  },
+});
 const AdminApp = () => (
   <SnackbarProvider>
     <FirebaseCMSApp
       basePath='/admin'
       name='admin page'
-      collections={[FrontPageCollection]}
+      collections={[FrontPageCollection, EmailsCollection]}
       firebaseConfig={firebase.firebaseConfig}
     />
   </SnackbarProvider>

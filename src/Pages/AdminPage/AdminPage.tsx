@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import AdminApp from './AdminApp';
 
-// import firebase from '../../Database/Firebase';
-
 const AdminPage = () => {
   const initialLoginState = localStorage.getItem('ALOE_IS_LOGIN');
 
@@ -36,23 +34,27 @@ const AdminPage = () => {
       </form>
     );
   }
+
   return (
     <>
-      <button
-        style={{
-          position: 'fixed',
-          left: 0,
-          top: 0,
-          zIndex: 10000,
-          background: '#fff',
-        }}
-        onClick={() => {
-          setIsLogin(false);
-          localStorage.removeItem('ALOE_IS_LOGIN');
-        }}
-      >
-        login out
-      </button>
+      {document.location.pathname === '' ? (
+        <button
+          style={{
+            position: 'fixed',
+            left: 0,
+            top: 0,
+            zIndex: 10000,
+            background: '#fff',
+          }}
+          onClick={() => {
+            setIsLogin(false);
+            localStorage.removeItem('ALOE_IS_LOGIN');
+          }}
+        >
+          login out
+        </button>
+      ) : null}
+
       <AdminApp />
     </>
   );

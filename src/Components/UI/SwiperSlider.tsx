@@ -9,13 +9,12 @@ const SwiperSlider: FC<{
 }> = ({ cards }) => {
   const width = useMedia();
 
-  const sheetCard = cards[0].props.index !== undefined;
   const sliderPerView = width > 670;
 
   return useMemo(
     () => (
       <Swiper
-        spaceBetween={sliderPerView || sheetCard ? 20 : -20}
+        spaceBetween={sliderPerView ? 0 : 0}
         slidesPerView={sliderPerView ? 3 : 1.3}
         grabCursor={true}
       >
