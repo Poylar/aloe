@@ -1,3 +1,5 @@
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 import React, { FC, useState } from 'react';
 
 import mailIcon from '../../Assets/icons/mailIcon.svg';
@@ -12,6 +14,8 @@ const FooterTop: FC<{
   description: string;
 }> = ({ title, placeholder, buttonText, description }) => {
   const [emailValue, setEmailValue] = useState<string>('');
+
+  const notyf = new Notyf();
 
   const sendHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -30,11 +34,13 @@ const FooterTop: FC<{
           .then(() => {});
 
         setEmailValue('');
+
+        notyf.success('Email send success');
       } catch (error: any) {
-        console.error(error.message);
+        notyf.error('Email send error');
       }
     } else {
-      console.log('wrong email');
+      notyf.error('Wrong Email');
     }
   };
 
