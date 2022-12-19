@@ -18,6 +18,9 @@ body.indexPage {
   color: var(--main);
   background: var(--main);
   @extend %sui_reg_16_24; // default font
+  a{
+    color: var(--main);
+  }
 }
 
 :root {
