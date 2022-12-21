@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './MetaInterface.module.scss';
 
 const MetaInterface = () => (
-  <section className={styles.section}>
+  <section className={styles.section} id='meta'>
     <iframe
       className={styles.iframe}
       title='cbridge'

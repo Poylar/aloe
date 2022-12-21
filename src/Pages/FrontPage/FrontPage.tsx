@@ -21,6 +21,10 @@ const FrontPage = () => {
     });
   }, []);
 
+  if (document.title !== 'Aloe Labs') {
+    document.title = 'Aloe Labs';
+  }
+
   if (page !== undefined) {
     return (
       <>

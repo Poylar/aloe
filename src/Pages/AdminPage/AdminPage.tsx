@@ -8,14 +8,13 @@ const AdminPage = () => {
   const [pass, setPass] = useState<string>('');
   const [isLogin, setIsLogin] = useState<boolean>(initialLoginState === 'true');
 
-  if (document.location.pathname !== '/' &&
-    document.location.pathname !== '') {
+  if (document.location.pathname !== '/' && document.location.pathname !== '') {
     if (!isLogin) {
       return (
         <form>
           <input
             type='text'
-            placeholder='Пароль'
+            placeholder='Password'
             value={pass}
             onChange={(e) => {
               setPass(e.target.value);
