@@ -38,7 +38,7 @@ const Mission: FC<{
         <Button
           text={pageData.descriptionButton.text}
           element={pageData.descriptionButton.element}
-          linkTo={pageData.descriptionButton.element}
+          linkTo={pageData.descriptionButton.linkTo}
         />
       </div>
     </div>
