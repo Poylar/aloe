@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './ButtonUI.module.scss';
 
-export interface ButtonUiProps {
+interface ButtonUiProps {
   children: React.ReactNode;
   linkTo?: string;
   className?: string;
@@ -58,4 +58,22 @@ const ButtonUIHide: FC<ButtonUiProps> = ({ children, linkTo, className }) => (
   </ButtonUi>
 );
 
-export { ButtonUiGreen, ButtonUITransparent, ButtonUiWhite, ButtonUIHide };
+const buttons = {
+  green: ButtonUiGreen,
+  transparent: ButtonUITransparent,
+  white: ButtonUiWhite,
+  hide: ButtonUIHide,
+};
+
+const Button: FC<{
+  text: string;
+  linkTo?: string;
+  element?: string;
+}> = ({ text, linkTo, element }) => {
+  const str = element !== undefined ? element : 'green';
+  // @ts-ignore
+  const ButtonElement = buttons[str];
+  return <ButtonElement linkTo={linkTo}>{text}</ButtonElement>;
+};
+
+export default Button;

@@ -1,107 +1,114 @@
-@use '../../assets/styles/global' as *;
-@use '../../assets/styles/typography' as *;
+@import '../../assets/styles/global';
+@import '../../assets/styles/typography';
+@import '../../assets/styles/media';
 
-
-.section{
+.section {
   background: var(--primBg);
   border-radius: var(--sectionBR);
-  padding: 60px 0;
-  &__wrapper{
+  padding: var(--gap-y) 0;
+  margin-bottom: 5px;
+  &__wrapper {
     @extend %container;
   }
-  .top{
-    margin-bottom: 60px;
+  .top {
+    margin-bottom: var(--gap-y);
     display: flex;
     justify-content: space-between;
-    .title{
+    @include media(l) {
+      flex-direction: column;
+    }
+    .title {
       color: var(--main);
-      @extend %sui_reg_80_84;
+      @extend %sui_light_80_84;
       max-width: 680px;
       margin-right: 20px;
+      @include media(l) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
     }
-    .description{
+    .description {
       color: var(--main);
       @extend %sui_reg_20_30;
-      text-indent: 40px;
+      text-indent: var(--textIndend);
       max-width: 400px;
     }
   }
-  .cards{
-
+  .cards {
   }
 }
 
-
-.card{
-  background: var(--prim);
-  padding: 20px 20px 30px 20px;
-  min-height: 400px;
-  min-width: 440px;
-  border-radius: 24px;
+.card {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
+  padding: 0 10px;
+  &__wrapper{
+    background: var(--prim);
+    padding: 20px 20px 30px 20px;
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 400px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    &:before {
+      content: '';
+      display: block;
+      width: 360px;
+      height: 360px;
+      position: absolute;
+      top: -200px;
+      right: -160px;
+      opacity: 0.8;
+      filter: blur(100px);
+      background: var(--third);
+      z-index: 1;
+    }
+    &.green:before {
+      background: var(--second);
+    }
+    &.red:before {
+      background: var(--wrong);
+    }
+  }
 
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-right: 20px;
   }
-  &__top{
+  &__top {
     display: flex;
     align-items: center;
-    %tag{
+    %tag {
       margin-right: 4px;
       border-radius: 12px;
       color: var(--prim);
       padding: 4px 12px;
     }
-    .new{
+    .new {
       @extend %tag;
       background: var(--second);
       border-radius: 12px;
     }
-    .hot{
+    .hot {
       @extend %tag;
       background: var(--wrong);
       border-radius: 12px;
     }
   }
-  &__title{
+  &__title {
     @extend %sui_reg_24_32;
     color: var(--main);
     margin-bottom: 12px;
     position: relative;
     z-index: 2;
   }
-  &__description{
+  &__description {
     @extend %sui_reg_16_24;
     color: var(--letter);
     margin-bottom: 24px;
     position: relative;
     z-index: 2;
   }
-
-  &:before{
-    content: "";
-    display: block;
-    width: 360px;
-    height: 360px;
-    position: absolute;
-    top: -200px;
-    right: -160px;
-    opacity: 0.8;
-    filter: blur(100px);
-    background: var(--third);
-    z-index: 1;
-  }
-  &.green:before{
-    background: var(--second);
-  }
-  &.red:before{
-    background: var(--wrong);
-  }
-
 }

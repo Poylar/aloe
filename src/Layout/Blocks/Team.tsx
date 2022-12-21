@@ -1,34 +1,46 @@
 import React, { FC } from 'react';
 
-interface ISocial {
-  type: string;
-  link: string;
-}
+import SocialIcon from '../../Components/UI/SocialIcon';
+import SwiperSlider from '../../Components/UI/SwiperSlider';
+import {
+  ITeamCard,
+  ITeamPageData,
+} from '../../Pages/FrontPage/FrontPage.types';
+import styles from './Team.module.scss';
 
-interface ITeamCard {
-  image: string;
-  name: string;
-  desc: string;
-  social: ISocial[];
-}
-
-interface ITeamProps {
-  title: string;
-  description: string;
-  cards: ITeamCard[];
-}
-
-const Team: FC<ITeamProps> = (props) => {
-  const { title, description } = props;
+const TeamCard: FC<{ card: ITeamCard }> = ({ card }) => {
+  const { image, name, desc, socials } = card;
 
   return (
-    <section>
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
+    <div className={styles.card}>
+      {image === '' ? (
+        <span className={styles.image}>{image}</span>
+      ) : (
+        <img className={styles.image} src={image} alt='' />
+      )}
+      <h3 className={styles.name}>{name}</h3>
+      <p className={styles.desc}>{desc}</p>
 
-        <div>
-          <div>card</div>
+      {socials.map((social, index) => (
+        <SocialIcon social={social} key={index} />
+      ))}
+    </div>
+  );
+};
+
+const Team: FC<{ pageData: ITeamPageData }> = ({ pageData }) => {
+  const cards = pageData.cards.map((card) => <TeamCard card={card} />);
+
+  return (
+    <section className={styles.section} id={pageData.id}>
+      <div className={styles.section__wrapper}>
+        <div className={styles.section__text}>
+          <h1 className={styles.title}>{pageData.title}</h1>
+          <p className={styles.description}>{pageData.description}</p>
+        </div>
+
+        <div className={styles.section__cards}>
+          <SwiperSlider cards={cards} />
         </div>
       </div>
     </section>

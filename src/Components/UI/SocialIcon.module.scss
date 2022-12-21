@@ -1,0 +1,18 @@
+.socialIcon{
+  font-size: 0;
+  line-height: 0;
+  &:not(:last-child){
+    margin-right: 16px;
+  }
+  .img{
+    width: 20px;
+    height: 20px;
+    transition: .4s;
+    transform: rotate(0deg) scale(1);
+  }
+  &:hover{
+    .img{
+      transform: rotate(-25deg) scale(1.2);
+    }
+  }
+}

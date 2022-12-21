@@ -20,6 +20,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "no-console": "off",
     "linebreak-style": 0,
     "prettier/prettier": [
       "error",
@@ -27,11 +28,15 @@
         "endOfLine": "auto"
       }
     ],
+    "no-nested-ternary": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-unused-prop-types": "off",
     "react/require-default-props": "off",
     "react/no-array-index-key": "off",
     "react/jsx-boolean-value": "off",
+    "react/button-has-type": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": [
       2,
       {
@@ -41,3 +46,4 @@
     ]
   }
 }
+

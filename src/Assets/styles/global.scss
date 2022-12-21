@@ -1,29 +1,3 @@
-@use 'colors' as *;
-@use 'typography' as *;
-
-:root {
-  @extend %colorsRoot;
-  --container: 1400px;
-  --gap: 20px;
-  --sectionBR: 40px;
-}
-
-*,
-*:before,
-*:after {
-  @extend %sui_reg_16_24; // default font
-  color: var(--main);
-  box-sizing: border-box;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-
-body{
-  background: var(--main);
-}
-
 %container {
   max-width: var(--container);
   width: 100%;

@@ -1,20 +1,17 @@
 import React, { FC } from 'react';
 
-import iconsBridge from '../../Assets/icons/iconsBridge.svg';
+import iconsBridge from '../../Assets/images/logotypes.png';
+import { IBridgePageData } from '../../Pages/FrontPage/FrontPage.types';
 import styles from './Bridge.module.scss';
-
-interface Props {
-  pageData: {
-    text: string;
-  };
-}
 
 const icons = {
   bridge: iconsBridge,
 };
 
-const Bridge: FC<Props> = ({ pageData }) => (
-  <section className={styles.section}>
+const Bridge: FC<{
+  pageData: IBridgePageData;
+}> = ({ pageData }) => (
+  <section className={styles.section} id={pageData.id}>
     <div className={styles.section__wrapper}>
       <h2 className={styles.title}>
         {pageData.text.split('%').map((item, index) => {

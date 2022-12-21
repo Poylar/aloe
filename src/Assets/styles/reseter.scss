@@ -1,0 +1,54 @@
+@import 'typography';
+@import 'media';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  outline: 0;
+}
+
+body.indexPage {
+  color: var(--main);
+  background: var(--main);
+  @extend %sui_reg_16_24; // default font
+}
+
+a{
+  color: var(--main);
+}
+
+:root {
+  --main: #111111;
+  --mainBg: #1e2124;
+  --prim: #ffffff;
+  --imageBg: #e6e6e6;
+  --primBg: #efefef;
+  --descriptionBg: #f3f3f3;
+  --letter: #a6a6a6;
+  --second: #38c98c;
+  --secondHover: #1f9463;
+  --wrong: #c95238;
+  --third: #3861c9;
+
+  --container: 1400px;
+  @include media(xxl) {
+    --container: 100%;
+  }
+
+  --gap: 20px;
+  --gap-y: 60px;
+  --sectionBR: 40px;
+  --textIndend: 40px;
+  @include media(l) {
+    --gap-y: 40px;
+    --sectionBR: 24px;
+    --textIndend: 20px;
+  }
+}

@@ -1,24 +1,39 @@
-@use '../../assets/styles/global' as *;
+@import '../../assets/styles/global';
+@import '../../assets/styles/media';
 
 .header {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
+  //@include media(xl){
+  //  position: fixed;
+  //}
   .logo {
     margin-right: 60px;
+    line-height: 0;
+    font-size: 0;
+    @include media(l){
+      margin-right: 10px;
+    }
   }
   &__wrapper {
     @extend %container;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   &__nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    @include media(xl){
+      justify-content: space-between;
+      width: 100%;
+    }
   }
   &__buttons{
     display: flex;
@@ -26,13 +41,78 @@
   }
 }
 
+.burger{
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 12px;
+  .first,.second{
+    width: 17px;
+    height: 1px;
+    border-radius: 5px;
+    background: var(--main);
+    transition: .4s;
+  }
+  .first{
+    margin-bottom: 6px;
+  }
+}
+
+
 .headerMenu {
+  @include media(xl){
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  &.open {
+    .burger {
+      background: rgba(255, 255, 255, 0.2);
+      .first {
+        transform: rotate(-45deg) translate(-2px, 2px);
+      }
+      .second {
+        transform: rotate(45deg) translate(-3px, -3px);
+      }
+    }
+    .headerMenu__wrapper {
+      @include media(xl) {
+        max-height: 300px;
+      }
+    }
+  }
+
+
+
   &__wrapper {
     display: flex;
     align-items: center;
+    @include media(xl){
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      background: var(--prim);
+      border-radius: 12px;
+      top: 55px;
+      padding: 0 16px;
+      max-height: 0;
+      overflow:hidden;
+      transition: .4s;
+    }
     .navItem {
       position: relative;
       margin-right: 32px;
+      @include media(xl){
+        margin-right: 0;
+        margin-bottom: 16px;
+        &:first-child{
+          margin-top: 16px;
+        }
+      }
       &:before{
         content: "";
         display: block;

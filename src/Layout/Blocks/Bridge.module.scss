@@ -1,19 +1,30 @@
-@use '../../assets/styles/global' as *;
-@use '../../assets/styles/typography' as *;
+@import '../../assets/styles/global';
+@import '../../assets/styles/typography';
 
-.section{
-  background: linear-gradient(180deg, #16171A 36.84%, #313443 100%);
+.section {
+  background: linear-gradient(180deg, #16171a 36.84%, #313443 100%);
   border-radius: var(--sectionBR);
-  padding: 60px 0;
-  &__wrapper{
+  padding: var(--gap-y) 0;
+  margin-bottom: 5px;
+  &__wrapper {
     @extend %container;
-    .title{
-      @extend %sui_reg_80_84;
+    .title {
+      @extend %sui_light_80_84;
       color: var(--prim);
       padding-right: 120px;
+      @include media(l) {
+        padding-right: 0;
+      }
     }
-    .icon{
+    .icon {
       margin-bottom: -12px;
+      width: 320px;
+      height: 80px;
+      @include media(l) {
+        height: 40px;
+        width: 180px;
+        margin-bottom: -6px;
+      }
     }
   }
 }

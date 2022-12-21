@@ -1,22 +1,27 @@
+@import "../../Assets/styles/media";
+
 %button {
   color: var(--prim);
   padding: 12px 24px;
   border-radius: 16px;
   display: inline-block;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: .4s;
   &:not(:last-child) {
     margin-right: 12px;
+    @include media(xl){
+      margin-right: 4px;
+    }
   }
 }
 
 .button_green {
   @extend %button;
   background: var(--second);
-}
-
-.button_transparent {
-  @extend %button;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  &:hover{
+    background: var(--secondHover);
+  }
 }
 
 .button_white {
@@ -24,6 +29,43 @@
   background: var(--prim);
   color: var(--main);
   border: 1px solid rgba(17, 17, 17, 0.2);
+  &:hover{
+    background: var(--main);
+    color: var(--prim);
+    border: 1px solid rgba(17, 17, 17, 1);
+  }
+}
+
+.button_transparent {
+  @extend %button;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  &:hover{
+    background: rgba(0, 0, 0, 1);
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  @include media(xl){
+    color: var(--main);
+    padding: 12px 24px;
+    border-radius: 16px;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .4s;
+    background: var(--prim);
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    &:not(:last-child) {
+      margin-right: 12px;
+      @include media(xl){
+        margin-right: 4px;
+      }
+    }
+    &:hover{
+      background: var(--main);
+      color: var(--prim);
+      border: 1px solid rgba(17, 17, 17, 1);
+    }
+  }
 }
 
 .button_hide{
@@ -31,4 +73,9 @@
   background: transparent;
   color: var(--prim);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  &:hover{
+    background: var(--prim);
+    color: var(--main);
+    border: 1px solid rgba(17, 17, 17, 1);
+  }
 }
