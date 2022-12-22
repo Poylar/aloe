@@ -2,14 +2,15 @@ import {
   FirebaseCMSApp,
   SnackbarProvider,
   buildCollection,
+  buildProperty,
 } from '@camberi/firecms';
 import React from 'react';
 
 import { IEmailItem } from '../../App.types';
 import firebase from '../../Database/Firebase';
-import { ISheetPageData } from '../FrontPage/FrontPage.types';
+import { ISheetPageData, ITeamPageData } from '../FrontPage/FrontPage.types';
 
-const FrontPageCollection = buildCollection<ISheetPageData>({
+const FrontPageCollection = buildCollection<ISheetPageData | ITeamPageData>({
   name: 'FrontPage',
   singularName: 'FrontPage',
   path: 'FrontPage',
@@ -42,6 +43,27 @@ const FrontPageCollection = buildCollection<ISheetPageData>({
           },
           title: {
             name: 'title',
+            dataType: 'string',
+          },
+          image: buildProperty({
+            dataType: 'string',
+            name: 'image',
+            storage: {
+              mediaType: 'image',
+              storagePath: 'images',
+              acceptedFiles: ['image/*'],
+              metadata: {
+                cacheControl: 'max-age=1000000',
+              },
+            },
+            description: 'Upload field for images',
+          }),
+          name: {
+            name: 'name',
+            dataType: 'string',
+          },
+          desc: {
+            name: 'desc',
             dataType: 'string',
           },
           description: {
@@ -96,6 +118,7 @@ const EmailsCollection = buildCollection<{ emails: Array<IEmailItem> }>({
     },
   },
 });
+
 const AdminApp = () => (
   <SnackbarProvider>
     <FirebaseCMSApp

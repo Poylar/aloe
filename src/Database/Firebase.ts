@@ -1,8 +1,9 @@
 import type { FirebaseApp } from '@firebase/app';
-import { arrayRemove, arrayUnion, doc, updateDoc } from '@firebase/firestore';
 import type { Firestore } from '@firebase/firestore';
+import { arrayRemove, arrayUnion, doc, updateDoc } from '@firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import { collection, getDocs, getFirestore, setDoc } from 'firebase/firestore';
+import { FirebaseStorage, getStorage, ref } from 'firebase/storage';
 
 import { IEmailItem } from '../App.types';
 
@@ -16,6 +17,7 @@ const firebaseConfig = {
 };
 
 const app: FirebaseApp = initializeApp(firebaseConfig);
+const storage: FirebaseStorage = getStorage();
 
 const firebaseDataBase: Firestore = getFirestore(app);
 
@@ -33,8 +35,8 @@ const getFrontPageData = async (db: Firestore) => {
 };
 
 const includeNewEmail = async (db: Firestore, data: IEmailItem) => {
-  const ref = doc(collection(db, 'Emails'), 'JVsorqdq4ibdJB1BuYWz');
-  await setDoc(ref, { emails: arrayUnion(data) }, { merge: true });
+  const refDoc = doc(collection(db, 'Emails'), 'JVsorqdq4ibdJB1BuYWz');
+  await setDoc(refDoc, { emails: arrayUnion(data) }, { merge: true });
 };
 
 const getEmails = async (db: Firestore) => {
@@ -43,9 +45,12 @@ const getEmails = async (db: Firestore) => {
 };
 
 const removeCurrentEmail = async (db: Firestore, current: IEmailItem) => {
-  const ref = doc(collection(db, 'Emails'), 'JVsorqdq4ibdJB1BuYWz');
-  await updateDoc(ref, { emails: arrayRemove(current) });
+  const refDoc = doc(collection(db, 'Emails'), 'JVsorqdq4ibdJB1BuYWz');
+  await updateDoc(refDoc, { emails: arrayRemove(current) });
 };
+
+const getStorageImage = async (link: string) =>
+  ref(storage, `gs://aloe-82ae8.appspot.com/${link}`);
 
 export default {
   getPageData,
@@ -56,6 +61,7 @@ export default {
   firebaseDataBase,
   firebaseConfig,
   app,
+  getStorageImage,
 };
 
 export { firebaseConfig };
