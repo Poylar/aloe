@@ -8,7 +8,11 @@ const AdminPage = () => {
   const [pass, setPass] = useState<string>('');
   const [isLogin, setIsLogin] = useState<boolean>(initialLoginState === 'true');
 
-  if (document.location.pathname !== '/' && document.location.pathname !== '') {
+  if (
+    document.location.pathname !== '/' &&
+    document.location.pathname !== '/terms' &&
+    document.location.pathname !== ''
+  ) {
     if (!isLogin) {
       return (
         <form>
@@ -43,6 +47,7 @@ const AdminPage = () => {
     <>
       {isLogin ? (
         document.location.pathname !== '/' &&
+        document.location.pathname !== '/terms' &&
         document.location.pathname !== '' ? (
           <button
             style={{
