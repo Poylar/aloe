@@ -40,18 +40,20 @@ const App = () => {
         <Header pageData={defaultPageData.header} hash={location.hash} />
       ) : null}
 
-      <main>
-        <Routes>
-          {PageRoutes.map((item, index) => (
-            <Route
-              key={index}
-              index={item.path === '/'}
-              path={item.path}
-              element={<item.element />}
-            />
-          ))}
-        </Routes>
-      </main>
+      {location.pathname === '/' ? (
+        <main>
+          <Routes>
+            {PageRoutes.map((item, index) => (
+              <Route
+                key={index}
+                index={item.path === '/'}
+                path={item.path}
+                element={<item.element />}
+              />
+            ))}
+          </Routes>
+        </main>
+      ) : null}
 
       {location.pathname === '/' && defaultPageData !== undefined ? (
         <Footer pageData={defaultPageData.footer} />

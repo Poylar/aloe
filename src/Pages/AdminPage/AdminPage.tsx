@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import AdminApp from './AdminApp';
+import styles from './AdminApp.module.scss';
 
 const AdminPage = () => {
   const initialLoginState = localStorage.getItem('ALOE_IS_LOGIN');
@@ -15,17 +16,19 @@ const AdminPage = () => {
   ) {
     if (!isLogin) {
       return (
-        <form>
+        <form className={styles.loginForm}>
           <input
-            type='text'
+            type='password'
             placeholder='Password'
+            name='password'
             value={pass}
+            className={styles.loginInput}
             onChange={(e) => {
               setPass(e.target.value);
             }}
           />
           <button
-            style={{ cursor: 'pointer' }}
+            className={styles.buttonLogin}
             onClick={(e) => {
               e.preventDefault();
               if (pass === import.meta.env.VITE_ADMIN_PASS) {
@@ -34,14 +37,12 @@ const AdminPage = () => {
               }
             }}
           >
-            login
+            Sign in
           </button>
         </form>
       );
     }
   }
-
-  console.log(document.location.pathname);
 
   return (
     <>
@@ -50,13 +51,7 @@ const AdminPage = () => {
         document.location.pathname !== '/terms' &&
         document.location.pathname !== '' ? (
           <button
-            style={{
-              position: 'fixed',
-              left: 0,
-              top: 0,
-              zIndex: 10000,
-              background: '#fff',
-            }}
+            className={styles.logOutButton}
             onClick={() => {
               setIsLogin(false);
               localStorage.removeItem('ALOE_IS_LOGIN');
